@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LLWS.Core;
 
 namespace LLWS
 {
@@ -16,6 +17,7 @@ namespace LLWS
         //Properties
         private Button activeBtn; // Bouton actif
         private Form activeForm; // Fenêtre active
+        DatabaseManager manager = new DatabaseManager();
 
         public MainMenu()
         {

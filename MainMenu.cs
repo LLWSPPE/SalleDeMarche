@@ -14,8 +14,8 @@ namespace LLWS
     {
 
         //Properties
-        private Button activeBtn;
-        private Form activeForm;
+        private Button activeBtn; // Bouton actif
+        private Form activeForm; // Fenêtre active
 
         public MainMenu()
         {
@@ -25,6 +25,7 @@ namespace LLWS
         #region BtnFunction
         private void ActivateButton(object sender)
         {
+            //Active un bouton lorsqu'il est cliqué, change sa couleur et la police.
             if(sender != null)
             {
                 if(activeBtn != (Button)sender)
@@ -39,6 +40,7 @@ namespace LLWS
 
         private void DesactivateOtherButton()
         {
+            //Lorsqu'un bouton est cliqué, cette fonction est appellée et désactive les autres boutons (remet la couleur et l'ancienne police)
             foreach(Control resetBtn in pnlSidebar.Controls)
             {
                 resetBtn.BackColor = Color.FromArgb(39, 60, 117);
@@ -48,6 +50,12 @@ namespace LLWS
 
         private void OpenActiveForm(Form childForm, object sender)
         {
+            /*
+             * Lorsqu'un bouton est cliqué, la fenêtre principale change en fonction du Form qui lui est associé
+             * Exemple : btnLogin -> LoginForm
+             * On change le titre du label en haut (labelWindowTitle)
+             * le panelMainWindow se transforme en le Form qui lui correspond
+             */
             if(activeForm != null)
             {
                 activeForm.Close();
@@ -71,6 +79,8 @@ namespace LLWS
         #endregion
 
         #region btnActions
+
+        // Liste des actions associées aux boutons
         private void btnLogin_Click(object sender, EventArgs e)
         {
             OpenActiveForm(new UserInterface.LoginForm(), sender);

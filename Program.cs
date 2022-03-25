@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LLWS.Core;
 
 namespace LLWS
 {
@@ -16,7 +17,12 @@ namespace LLWS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainMenu());
+            Application.Run(new Login());
+
+            //A l'ouverture du logiciel, on ouvre un canal de communication avec la base de données.
+            DatabaseManager databaseManager = new DatabaseManager();
+            databaseManager.openNewConnection();
+
         }
     }
 }

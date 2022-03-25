@@ -24,6 +24,7 @@ namespace LLWS
             InitializeComponent();
         }
 
+
         #region BtnFunction
         private void ActivateButton(object sender)
         {

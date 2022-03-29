@@ -61,6 +61,7 @@ namespace LLWS
                             //Si tout est correct, on ouvre la fenêtre principale.
                             MainMenu mainWindows = new MainMenu();
                             mainWindows.Show();
+                            this.Hide();
                         }
                     }
                    
@@ -81,6 +82,7 @@ namespace LLWS
         {
             RegisterForm registerForm = new RegisterForm();
             registerForm.Show();
+            this.Hide();
         }
     }
 }

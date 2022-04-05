@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LLWS.UserInterface
+namespace LLWS.UserInterface.Products
 {
-    public partial class LoginForm : Form
+    public partial class Products : Form
     {
-        public LoginForm()
+        public Products()
         {
             InitializeComponent();
         }

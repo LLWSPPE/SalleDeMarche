@@ -51,6 +51,7 @@ namespace LLWS
             this.pnlLogin.Name = "pnlLogin";
             this.pnlLogin.Size = new System.Drawing.Size(809, 415);
             this.pnlLogin.TabIndex = 0;
+            this.pnlLogin.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlLogin_Paint);
             // 
             // btnRegister
             // 
@@ -74,7 +75,7 @@ namespace LLWS
             this.lblLoginTitle.ForeColor = System.Drawing.SystemColors.Control;
             this.lblLoginTitle.Location = new System.Drawing.Point(330, 93);
             this.lblLoginTitle.Name = "lblLoginTitle";
-            this.lblLoginTitle.Size = new System.Drawing.Size(116, 25);
+            this.lblLoginTitle.Size = new System.Drawing.Size(142, 29);
             this.lblLoginTitle.TabIndex = 3;
             this.lblLoginTitle.Text = "Connexion";
             // 
@@ -99,18 +100,22 @@ namespace LLWS
             this.txbPassword.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbPassword.Location = new System.Drawing.Point(222, 186);
             this.txbPassword.Name = "txbPassword";
-            this.txbPassword.Size = new System.Drawing.Size(345, 25);
+            this.txbPassword.Size = new System.Drawing.Size(345, 29);
             this.txbPassword.TabIndex = 1;
             this.txbPassword.Text = "Mot de passe";
+            this.txbPassword.Enter += new System.EventHandler(this.txbPassword_Enter);
+            this.txbPassword.Leave += new System.EventHandler(this.txbPassword_Leave);
             // 
             // txbMail
             // 
             this.txbMail.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbMail.Location = new System.Drawing.Point(222, 139);
             this.txbMail.Name = "txbMail";
-            this.txbMail.Size = new System.Drawing.Size(345, 25);
+            this.txbMail.Size = new System.Drawing.Size(345, 29);
             this.txbMail.TabIndex = 0;
             this.txbMail.Text = "Adresse mail";
+            this.txbMail.Enter += new System.EventHandler(this.txbMail_Enter);
+            this.txbMail.Leave += new System.EventHandler(this.txbMail_Leave);
             // 
             // Login
             // 
@@ -118,7 +123,11 @@ namespace LLWS
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(809, 415);
             this.Controls.Add(this.pnlLogin);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Login";
             this.pnlLogin.ResumeLayout(false);
             this.pnlLogin.PerformLayout();

@@ -16,6 +16,7 @@ namespace LLWS
 {
     public partial class Login : Form
     {
+        
 
         private DatabaseManager databaseManager = new DatabaseManager();
         private MySqlConnection connection;
@@ -83,6 +84,31 @@ namespace LLWS
             RegisterForm registerForm = new RegisterForm();
             registerForm.Show();
             this.Hide();
+        }
+
+        private void pnlLogin_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txbPassword_Enter(object sender, EventArgs e)
+        {
+            txbPassword.Text = "";
+        }
+
+        private void txbPassword_Leave(object sender, EventArgs e)
+        {
+            if (txbPassword.Text == "") txbPassword.Text = "mot de passe";
+        }
+
+        private void txbMail_Leave(object sender, EventArgs e)
+        {
+            if (txbMail.Text == "") txbMail.Text = "adresse mail";
+        }
+
+        private void txbMail_Enter(object sender, EventArgs e)
+        {
+            txbMail.Text = "";
         }
     }
 }

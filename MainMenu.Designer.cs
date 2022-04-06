@@ -54,8 +54,9 @@ namespace LLWS
             this.pnlSidebar.Controls.Add(this.panelLogo);
             this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
+            this.pnlSidebar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlSidebar.Name = "pnlSidebar";
-            this.pnlSidebar.Size = new System.Drawing.Size(176, 553);
+            this.pnlSidebar.Size = new System.Drawing.Size(235, 681);
             this.pnlSidebar.TabIndex = 0;
             // 
             // btnDocuments
@@ -67,10 +68,11 @@ namespace LLWS
             this.btnDocuments.ForeColor = System.Drawing.SystemColors.Control;
             this.btnDocuments.Image = global::LLWS.Properties.Resources.writing;
             this.btnDocuments.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDocuments.Location = new System.Drawing.Point(0, 275);
+            this.btnDocuments.Location = new System.Drawing.Point(0, 338);
+            this.btnDocuments.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDocuments.Name = "btnDocuments";
-            this.btnDocuments.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnDocuments.Size = new System.Drawing.Size(176, 52);
+            this.btnDocuments.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
+            this.btnDocuments.Size = new System.Drawing.Size(235, 64);
             this.btnDocuments.TabIndex = 5;
             this.btnDocuments.Text = "   Documents";
             this.btnDocuments.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -86,10 +88,11 @@ namespace LLWS
             this.btnOperations.ForeColor = System.Drawing.SystemColors.Control;
             this.btnOperations.Image = global::LLWS.Properties.Resources.chart;
             this.btnOperations.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOperations.Location = new System.Drawing.Point(0, 223);
+            this.btnOperations.Location = new System.Drawing.Point(0, 274);
+            this.btnOperations.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnOperations.Name = "btnOperations";
-            this.btnOperations.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnOperations.Size = new System.Drawing.Size(176, 52);
+            this.btnOperations.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
+            this.btnOperations.Size = new System.Drawing.Size(235, 64);
             this.btnOperations.TabIndex = 4;
             this.btnOperations.Text = "   Opérations";
             this.btnOperations.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -105,10 +108,11 @@ namespace LLWS
             this.btnProducts.ForeColor = System.Drawing.SystemColors.Control;
             this.btnProducts.Image = global::LLWS.Properties.Resources.cubes;
             this.btnProducts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProducts.Location = new System.Drawing.Point(0, 171);
+            this.btnProducts.Location = new System.Drawing.Point(0, 210);
+            this.btnProducts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnProducts.Name = "btnProducts";
-            this.btnProducts.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnProducts.Size = new System.Drawing.Size(176, 52);
+            this.btnProducts.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
+            this.btnProducts.Size = new System.Drawing.Size(235, 64);
             this.btnProducts.TabIndex = 3;
             this.btnProducts.Text = "   Produits";
             this.btnProducts.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -124,10 +128,11 @@ namespace LLWS
             this.btnRegister.ForeColor = System.Drawing.SystemColors.Control;
             this.btnRegister.Image = global::LLWS.Properties.Resources.voting;
             this.btnRegister.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegister.Location = new System.Drawing.Point(0, 119);
+            this.btnRegister.Location = new System.Drawing.Point(0, 146);
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnRegister.Size = new System.Drawing.Size(176, 52);
+            this.btnRegister.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
+            this.btnRegister.Size = new System.Drawing.Size(235, 64);
             this.btnRegister.TabIndex = 2;
             this.btnRegister.Text = "   Inscription";
             this.btnRegister.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -143,10 +148,11 @@ namespace LLWS
             this.btnLogin.ForeColor = System.Drawing.SystemColors.Control;
             this.btnLogin.Image = global::LLWS.Properties.Resources.user;
             this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogin.Location = new System.Drawing.Point(0, 67);
+            this.btnLogin.Location = new System.Drawing.Point(0, 82);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnLogin.Size = new System.Drawing.Size(176, 52);
+            this.btnLogin.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
+            this.btnLogin.Size = new System.Drawing.Size(235, 64);
             this.btnLogin.TabIndex = 1;
             this.btnLogin.Text = "   Connexion";
             this.btnLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -158,8 +164,9 @@ namespace LLWS
             this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(42)))), ((int)(((byte)(86)))));
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(176, 67);
+            this.panelLogo.Size = new System.Drawing.Size(235, 82);
             this.panelLogo.TabIndex = 0;
             // 
             // panelWindowTitle
@@ -167,9 +174,10 @@ namespace LLWS
             this.panelWindowTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(60)))), ((int)(((byte)(117)))));
             this.panelWindowTitle.Controls.Add(this.labelWindowTitle);
             this.panelWindowTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelWindowTitle.Location = new System.Drawing.Point(176, 0);
+            this.panelWindowTitle.Location = new System.Drawing.Point(235, 0);
+            this.panelWindowTitle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelWindowTitle.Name = "panelWindowTitle";
-            this.panelWindowTitle.Size = new System.Drawing.Size(906, 67);
+            this.panelWindowTitle.Size = new System.Drawing.Size(1208, 82);
             this.panelWindowTitle.TabIndex = 1;
             this.panelWindowTitle.Paint += new System.Windows.Forms.PaintEventHandler(this.panelWindowTitle_Paint);
             // 
@@ -179,28 +187,33 @@ namespace LLWS
             this.labelWindowTitle.AutoSize = true;
             this.labelWindowTitle.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelWindowTitle.ForeColor = System.Drawing.Color.White;
-            this.labelWindowTitle.Location = new System.Drawing.Point(407, 20);
+            this.labelWindowTitle.Location = new System.Drawing.Point(543, 25);
+            this.labelWindowTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelWindowTitle.Name = "labelWindowTitle";
-            this.labelWindowTitle.Size = new System.Drawing.Size(120, 30);
+            this.labelWindowTitle.Size = new System.Drawing.Size(154, 37);
             this.labelWindowTitle.TabIndex = 0;
             this.labelWindowTitle.Text = "Connexion";
             // 
             // panelMainWindow
             // 
+            this.panelMainWindow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelMainWindow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMainWindow.Location = new System.Drawing.Point(176, 67);
+            this.panelMainWindow.Location = new System.Drawing.Point(235, 82);
+            this.panelMainWindow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelMainWindow.Name = "panelMainWindow";
-            this.panelMainWindow.Size = new System.Drawing.Size(906, 486);
+            this.panelMainWindow.Size = new System.Drawing.Size(1208, 599);
             this.panelMainWindow.TabIndex = 2;
             // 
             // MainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1082, 553);
+            this.ClientSize = new System.Drawing.Size(1443, 681);
             this.Controls.Add(this.panelMainWindow);
             this.Controls.Add(this.panelWindowTitle);
             this.Controls.Add(this.pnlSidebar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainMenu";
             this.Text = "Form1";
             this.pnlSidebar.ResumeLayout(false);

@@ -19,9 +19,6 @@ namespace LLWS
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login());
 
-            //A l'ouverture du logiciel, on ouvre un canal de communication avec la base de données.
-            DatabaseManager databaseManager = new DatabaseManager();
-            databaseManager.openNewConnection();
 
         }
     }

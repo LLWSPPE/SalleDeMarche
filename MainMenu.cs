@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LLWS.Core;
+using LLWS.UserInterface.Products;
+using Flurl.Http;
+using Newtonsoft.Json.Linq;
 
 namespace LLWS
 {
@@ -17,7 +20,6 @@ namespace LLWS
         //Properties
         private Button activeBtn; // Bouton actif
         private Form activeForm; // Fenêtre active
-        DatabaseManager manager = new DatabaseManager();
 
         public MainMenu()
         {
@@ -84,24 +86,16 @@ namespace LLWS
         #region btnActions
 
         // Liste des actions associées aux boutons
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            OpenActiveForm(new UserInterface.LoginForm(), sender);
-        }
 
-        private void btnRegister_Click(object sender, EventArgs e)
+        private async void btnProducts_Click(object sender, EventArgs e)
         {
-            OpenActiveForm(new UserInterface.RegisterForm(), sender);
-        }
-
-        private void btnProducts_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
+            string response = await GetAllCotations();
+            OpenActiveForm(new UserInterface.Products.Products(response), sender);
         }
 
         private void btnOperations_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            OpenActiveForm(new UserInterface.RegisterForm(), sender);
         }
 
         private void btnDocuments_Click(object sender, EventArgs e)
@@ -115,5 +109,32 @@ namespace LLWS
         {
 
         }
+
+
+        private static async Task<string> GetAllCotations()
+        {
+
+            string response = "";
+
+            var responseString = await APIManager.API_ROUTES_GET_ALL_COTATIONS
+            .GetStringAsync();
+
+            JToken token = JToken.Parse(responseString);
+
+            if (token.SelectToken("status").ToString() == "SUCCESS")
+            {
+
+                response = token.SelectToken("result").ToString();
+
+            }
+            else
+            {
+                MessageBox.Show("APPEL RATE");
+            }
+
+            return response;
+
+        }
+
     }
 }

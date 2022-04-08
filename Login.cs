@@ -10,7 +10,10 @@ using System.Windows.Forms;
 using LLWS.Core;
 using MySql.Data.MySqlClient;
 using LLWS.UserInterface;
-using BCrypt.Net;
+using Flurl.Http;
+using Newtonsoft.Json.Linq;
+using LLWS.Models;
+using System.Net.Http;
 
 namespace LLWS
 {
@@ -18,66 +21,51 @@ namespace LLWS
     {
         
 
-        private DatabaseManager databaseManager = new DatabaseManager();
-        private MySqlConnection connection;
         public Login()
         {
             InitializeComponent();
+           
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private static async Task<string> GetApiData(string email, string password)
         {
-            
-            if(String.IsNullOrEmpty(txbMail.Text) || String.IsNullOrEmpty(txbPassword.Text)){
-                //Si un des champs est vide: erreur.
-                MessageBox.Show("Veuillez remplir tous les champs");
-            }
-            else
+
+            string userToken = "";
+
+            var responseString = await APIManager.API_ROUTE_LOGIN
+            .PostUrlEncodedAsync(new { email = email, password = password })
+            .ReceiveString();
+
+            JToken token = JToken.Parse(responseString);
+
+            if (token.SelectToken("status").ToString() == "ERROR")
             {
-                this.databaseManager.openNewConnection();
-                this.connection = this.databaseManager.GetMySqlConnection();
+                MessageBox.Show(token.SelectToken("message").ToString());
+            }
 
-                //On cherche un utilisateur dans la table user qui possède l'email renseigné.
-                MySqlCommand command = new MySqlCommand("select * from user where email=@Mail", this.connection);
-                command.Parameters.AddWithValue("@Mail", txbMail.Text);
-
-                MySqlDataReader lecteur;
-                lecteur = command.ExecuteReader();
-
-                if (lecteur.HasRows)
-                    //Si une occurence est trouvée.
-                {
-                    while (lecteur.Read())
-                    {
-                        //On récupère le mot de passe.
-                        string passwordFromDb = lecteur.GetString(2);
-                        if (!BCrypt.Net.BCrypt.Verify(txbPassword.Text, passwordFromDb))
-                        {
-                            //Cette fonction renvoie True si le mot de passe encodé est le meme que le mot de passe dans la Db.
-                            //Ici, si la fonction renvoie False, alors les mots de passes ne sont pas identiques.
-                            MessageBox.Show("Mot de passe incorrect, veuillez réessayer.");
-                        }
-                        else
-                        {
-                            //Si tout est correct, on ouvre la fenêtre principale.
-                            MainMenu mainWindows = new MainMenu();
-                            mainWindows.Show();
-                            this.Hide();
-                        }
-                    }
-                   
-                }
-                else
-                {
-                    //Si aucune ligne n'est trouvé dans la db, alors l'utilisateur avec cet email n'existe pas.
-                    MessageBox.Show("Les identifiants de connexion sont incorrects, veuillez réessayer.");
-                }
-
-                lecteur.Close();
-                this.connection.Close();
+            if (token.SelectToken("status").ToString() == "SUCCESS")
+            {
+                userToken = (string)token.SelectToken("result[0].loginToken");
+                User.userToken = userToken;
+                MessageBox.Show("Utilisateur récupéré." + User.userToken);
+                
 
             }
+
+            return userToken;
+
         }
+
+        private async void btnLogin_Click(object sender, EventArgs e)
+        {
+            string email = this.txbMail.Text;
+            string password = this.txbPassword.Text;
+
+            var task = GetApiData(email, password);
+            var items = await task;
+
+        }
+    
 
         private void btnRegister_Click(object sender, EventArgs e)
         {

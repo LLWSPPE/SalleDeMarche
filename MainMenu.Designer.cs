@@ -33,8 +33,6 @@ namespace LLWS
             this.btnDocuments = new System.Windows.Forms.Button();
             this.btnOperations = new System.Windows.Forms.Button();
             this.btnProducts = new System.Windows.Forms.Button();
-            this.btnRegister = new System.Windows.Forms.Button();
-            this.btnLogin = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.panelWindowTitle = new System.Windows.Forms.Panel();
             this.labelWindowTitle = new System.Windows.Forms.Label();
@@ -49,8 +47,6 @@ namespace LLWS
             this.pnlSidebar.Controls.Add(this.btnDocuments);
             this.pnlSidebar.Controls.Add(this.btnOperations);
             this.pnlSidebar.Controls.Add(this.btnProducts);
-            this.pnlSidebar.Controls.Add(this.btnRegister);
-            this.pnlSidebar.Controls.Add(this.btnLogin);
             this.pnlSidebar.Controls.Add(this.panelLogo);
             this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
@@ -68,6 +64,7 @@ namespace LLWS
             this.btnDocuments.ForeColor = System.Drawing.SystemColors.Control;
             this.btnDocuments.Image = global::LLWS.Properties.Resources.writing;
             this.btnDocuments.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+          
             this.btnDocuments.Location = new System.Drawing.Point(0, 338);
             this.btnDocuments.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDocuments.Name = "btnDocuments";
@@ -88,7 +85,9 @@ namespace LLWS
             this.btnOperations.ForeColor = System.Drawing.SystemColors.Control;
             this.btnOperations.Image = global::LLWS.Properties.Resources.chart;
             this.btnOperations.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+
             this.btnOperations.Location = new System.Drawing.Point(0, 274);
+
             this.btnOperations.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnOperations.Name = "btnOperations";
             this.btnOperations.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
@@ -108,7 +107,9 @@ namespace LLWS
             this.btnProducts.ForeColor = System.Drawing.SystemColors.Control;
             this.btnProducts.Image = global::LLWS.Properties.Resources.cubes;
             this.btnProducts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+
             this.btnProducts.Location = new System.Drawing.Point(0, 210);
+          
             this.btnProducts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnProducts.Name = "btnProducts";
             this.btnProducts.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
@@ -119,6 +120,7 @@ namespace LLWS
             this.btnProducts.UseVisualStyleBackColor = true;
             this.btnProducts.Click += new System.EventHandler(this.btnProducts_Click);
             // 
+
             // btnRegister
             // 
             this.btnRegister.Dock = System.Windows.Forms.DockStyle.Top;
@@ -159,6 +161,7 @@ namespace LLWS
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
+
             // panelLogo
             // 
             this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(42)))), ((int)(((byte)(86)))));
@@ -212,7 +215,9 @@ namespace LLWS
             this.Controls.Add(this.panelMainWindow);
             this.Controls.Add(this.panelWindowTitle);
             this.Controls.Add(this.pnlSidebar);
+
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainMenu";
             this.Text = "Form1";
@@ -227,11 +232,9 @@ namespace LLWS
 
         private System.Windows.Forms.Panel pnlSidebar;
         private System.Windows.Forms.Panel panelLogo;
-        private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnDocuments;
         private System.Windows.Forms.Button btnOperations;
         private System.Windows.Forms.Button btnProducts;
-        private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Panel panelWindowTitle;
         private System.Windows.Forms.Label labelWindowTitle;
         private System.Windows.Forms.Panel panelMainWindow;

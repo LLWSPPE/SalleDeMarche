@@ -17,7 +17,7 @@ namespace LLWS
         //Properties
         private Button activeBtn; // Bouton actif
         private Form activeForm; // Fenêtre active
-        DatabaseManager manager = new DatabaseManager();
+        //DatabaseManager manager = new DatabaseManager();
 
         public MainMenu()
         {
@@ -84,24 +84,15 @@ namespace LLWS
         #region btnActions
 
         // Liste des actions associées aux boutons
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            OpenActiveForm(new UserInterface.LoginForm(), sender);
-        }
 
-        private void btnRegister_Click(object sender, EventArgs e)
+        private void btnProducts_Click(object sender, EventArgs e)
         {
             OpenActiveForm(new UserInterface.RegisterForm(), sender);
         }
 
-        private void btnProducts_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
-        }
-
         private void btnOperations_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            OpenActiveForm(new UserInterface.RegisterForm(), sender);
         }
 
         private void btnDocuments_Click(object sender, EventArgs e)

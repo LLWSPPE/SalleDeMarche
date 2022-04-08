@@ -64,7 +64,8 @@ namespace LLWS
             this.btnDocuments.ForeColor = System.Drawing.SystemColors.Control;
             this.btnDocuments.Image = global::LLWS.Properties.Resources.writing;
             this.btnDocuments.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDocuments.Location = new System.Drawing.Point(0, 210);
+          
+            this.btnDocuments.Location = new System.Drawing.Point(0, 338);
             this.btnDocuments.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDocuments.Name = "btnDocuments";
             this.btnDocuments.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
@@ -84,7 +85,9 @@ namespace LLWS
             this.btnOperations.ForeColor = System.Drawing.SystemColors.Control;
             this.btnOperations.Image = global::LLWS.Properties.Resources.chart;
             this.btnOperations.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOperations.Location = new System.Drawing.Point(0, 146);
+
+            this.btnOperations.Location = new System.Drawing.Point(0, 274);
+
             this.btnOperations.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnOperations.Name = "btnOperations";
             this.btnOperations.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
@@ -104,7 +107,9 @@ namespace LLWS
             this.btnProducts.ForeColor = System.Drawing.SystemColors.Control;
             this.btnProducts.Image = global::LLWS.Properties.Resources.cubes;
             this.btnProducts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProducts.Location = new System.Drawing.Point(0, 82);
+
+            this.btnProducts.Location = new System.Drawing.Point(0, 210);
+          
             this.btnProducts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnProducts.Name = "btnProducts";
             this.btnProducts.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
@@ -115,6 +120,48 @@ namespace LLWS
             this.btnProducts.UseVisualStyleBackColor = true;
             this.btnProducts.Click += new System.EventHandler(this.btnProducts_Click);
             // 
+
+            // btnRegister
+            // 
+            this.btnRegister.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRegister.FlatAppearance.BorderSize = 0;
+            this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegister.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegister.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnRegister.Image = global::LLWS.Properties.Resources.voting;
+            this.btnRegister.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRegister.Location = new System.Drawing.Point(0, 146);
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
+            this.btnRegister.Size = new System.Drawing.Size(235, 64);
+            this.btnRegister.TabIndex = 2;
+            this.btnRegister.Text = "   Inscription";
+            this.btnRegister.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLogin.FlatAppearance.BorderSize = 0;
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnLogin.Image = global::LLWS.Properties.Resources.user;
+            this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogin.Location = new System.Drawing.Point(0, 82);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
+            this.btnLogin.Size = new System.Drawing.Size(235, 64);
+            this.btnLogin.TabIndex = 1;
+            this.btnLogin.Text = "   Connexion";
+            this.btnLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+
             // panelLogo
             // 
             this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(42)))), ((int)(((byte)(86)))));
@@ -152,6 +199,7 @@ namespace LLWS
             // 
             // panelMainWindow
             // 
+            this.panelMainWindow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelMainWindow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMainWindow.Location = new System.Drawing.Point(235, 82);
             this.panelMainWindow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -167,6 +215,9 @@ namespace LLWS
             this.Controls.Add(this.panelMainWindow);
             this.Controls.Add(this.panelWindowTitle);
             this.Controls.Add(this.pnlSidebar);
+
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainMenu";
             this.Text = "Form1";

@@ -85,5 +85,60 @@ namespace LLWS.UserInterface
             loginForm.Show();
             this.Hide();
         }
+
+        private void txbFirstName_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txbFirstName_Enter(object sender, EventArgs e)
+        {
+            txbFirstName.Text = "";
+        }
+
+        private void txbFirstName_Leave(object sender, EventArgs e)
+        {
+            if (txbFirstName.Text =="") txbFirstName.Text = " Nom ";
+        }
+
+        private void txbLastName_Enter(object sender, EventArgs e)
+        {
+            txbLastName.Text = "";
+        }
+
+        private void txbLastName_Leave(object sender, EventArgs e)
+        {
+            if (txbLastName.Text == "") txbLastName.Text = " Prénom ";
+        }
+
+        private void txbEmail_Enter(object sender, EventArgs e)
+        {
+            txbEmail.Text = "";
+        }
+
+        private void txbEmail_Leave(object sender, EventArgs e)
+        {
+            if (txbEmail.Text == "") txbEmail.Text = " Email ";
+        }
+
+        private void txbPassword_Enter(object sender, EventArgs e)
+        {
+            txbPassword.Text = "";
+        }
+
+        private void txbPassword_Leave(object sender, EventArgs e)
+        {
+            if (txbPassword.Text == "") txbPassword.Text = "Mot de passe";
+        }
+
+        private void txbConfirmPassword_Enter(object sender, EventArgs e)
+        {
+            txbConfirmPassword.Text = "";
+        }
+
+        private void txbConfirmPassword_Leave(object sender, EventArgs e)
+        {
+            if (txbConfirmPassword.Text == "") txbConfirmPassword.Text = "Confirmez le mot de passe";
+        }
     }
 }

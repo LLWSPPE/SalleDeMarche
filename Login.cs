@@ -47,7 +47,10 @@ namespace LLWS
             {
                 userToken = (string)token.SelectToken("result[0].loginToken");
                 User.userToken = userToken;
-                MessageBox.Show("Utilisateur récupéré." + User.userToken);
+                
+
+                MainMenu mainMenu = new MainMenu();
+                mainMenu.Show();
                 
 
             }
@@ -63,6 +66,7 @@ namespace LLWS
 
             var task = GetApiData(email, password);
             var items = await task;
+
 
         }
     

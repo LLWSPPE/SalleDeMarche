@@ -17,8 +17,14 @@ namespace LLWS.Core
 
 
         //Routes used thoughout the app.
+
+        //Authentification
         public static string API_ROUTE_LOGIN = API_BASE_URL + "/login";
         public static string API_ROUTE_REGISTER = API_BASE_URL + "/register";
+
+
+        //Cotations
+        public static string API_ROUTES_GET_ALL_COTATIONS = API_BASE_URL + "/cotations/get";
 
 
     }

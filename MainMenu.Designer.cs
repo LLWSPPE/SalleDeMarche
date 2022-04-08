@@ -121,45 +121,6 @@ namespace LLWS
             this.btnProducts.Click += new System.EventHandler(this.btnProducts_Click);
             // 
 
-            // btnRegister
-            // 
-            this.btnRegister.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnRegister.FlatAppearance.BorderSize = 0;
-            this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegister.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegister.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnRegister.Image = global::LLWS.Properties.Resources.voting;
-            this.btnRegister.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegister.Location = new System.Drawing.Point(0, 146);
-            this.btnRegister.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
-            this.btnRegister.Size = new System.Drawing.Size(235, 64);
-            this.btnRegister.TabIndex = 2;
-            this.btnRegister.Text = "   Inscription";
-            this.btnRegister.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnRegister.UseVisualStyleBackColor = true;
-            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
-            // 
-            // btnLogin
-            // 
-            this.btnLogin.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnLogin.FlatAppearance.BorderSize = 0;
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnLogin.Image = global::LLWS.Properties.Resources.user;
-            this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogin.Location = new System.Drawing.Point(0, 82);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
-            this.btnLogin.Size = new System.Drawing.Size(235, 64);
-            this.btnLogin.TabIndex = 1;
-            this.btnLogin.Text = "   Connexion";
-            this.btnLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
 
             // panelLogo

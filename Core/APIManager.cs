@@ -10,13 +10,17 @@ using System.Net.Http;
 
 namespace LLWS.Core
 {
+
+    /*
+     * Cette classe statique est accessible tout au long du cycle de vie de l'application sans avoir besoins d'être instanciées
+     * Cette classe ne contient que des strings définissant les différentes routes de l'API accessible.
+     * Utilité : Eviter la répétition, et si le lien de l'API change il n'y a que la variable API_BASE_URL à changer
+     */
     public static class APIManager
     {
         public static string API_BASE_URL = "http://localhost:9000";
         public static HttpClient httpClient;
 
-
-        //Routes used thoughout the app.
 
         //Authentification
         public static string API_ROUTE_LOGIN = API_BASE_URL + "/login";

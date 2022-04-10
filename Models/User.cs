@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace LLWS.Models
 {
+    /*
+     * Cette classe stocke l'utilisateur récupéré lors de la connexion
+     * Elle est statique dont accessible tout au long du cycle de vie de l'application
+     * Cette classe statique permet de créer une "Session" ou les informations de l'utilisateur de l'application est stockée.
+     */
         public static class User
         {
             public static int id { get; set; }
@@ -20,6 +25,11 @@ namespace LLWS.Models
             public static object dateDebut { get; set; }
             public static object dateFin { get; set; }
             public static double budget { get; set; }
+
+            /*
+             * Le token de connexion est central, et permettra de vérifier qu'il est bien connecté mais également
+             * de voir si il peut performer certaines actions.
+             */
             public static string userToken { get; set; }
 
         }

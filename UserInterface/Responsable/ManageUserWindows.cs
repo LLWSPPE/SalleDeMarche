@@ -28,6 +28,7 @@ namespace LLWS.UserInterface.Responsable
             setUpComposants();
         }
 
+        #region "Initialisation des composants"
         private void setUpComposants()
         {
            
@@ -58,8 +59,10 @@ namespace LLWS.UserInterface.Responsable
             this.txbLastName.Text = this.trader.last_name;
             this.txbEmail.Text = this.trader.email;
         }
+        #endregion
 
-        
+        #region "Action des boutons"
+
         private async void btnPromoteResponsable_Click(object sender, EventArgs e)
         {
             var task = await PromoteUser(this.trader.id);
@@ -134,6 +137,20 @@ namespace LLWS.UserInterface.Responsable
             MessageBox.Show(task);
 
         }
+
+        private async void btnEditInformations_Click(object sender, EventArgs e)
+        {
+            string firstName = this.txbFirstName.Text;
+            string lastName = this.txbLastName.Text;
+            string email = this.txbEmail.Text;
+
+            var task = await EditUser(this.trader.id, firstName, lastName, email);
+            MessageBox.Show(task);
+        }
+
+        #endregion
+
+        #region "Tâches asyncrhones"
 
         private static async Task<string> PromoteUser(int userId)
         {
@@ -232,15 +249,7 @@ namespace LLWS.UserInterface.Responsable
             return response;
 
         }
+        #endregion
 
-        private async void lblEditInformations_Click(object sender, EventArgs e)
-        {
-            string firstName = this.txbFirstName.Text;
-            string lastName = this.txbLastName.Text;
-            string email = this.txbEmail.Text;
-
-            var task = await EditUser(this.trader.id, firstName, lastName, email);
-            MessageBox.Show(task);
-        }
     }
 }

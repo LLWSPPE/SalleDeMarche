@@ -30,6 +30,10 @@ namespace LLWS
         private void InitializeComponent()
         {
             this.pnlSidebar = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblUserBudget = new System.Windows.Forms.Label();
+            this.lblMyBudget = new System.Windows.Forms.Label();
+            this.btnDeconnexion = new System.Windows.Forms.Button();
             this.btnDocuments = new System.Windows.Forms.Button();
             this.btnOperations = new System.Windows.Forms.Button();
             this.btnProducts = new System.Windows.Forms.Button();
@@ -37,13 +41,19 @@ namespace LLWS
             this.panelWindowTitle = new System.Windows.Forms.Panel();
             this.labelWindowTitle = new System.Windows.Forms.Label();
             this.panelMainWindow = new System.Windows.Forms.Panel();
+            this.btnManageUser = new System.Windows.Forms.Button();
+            this.btnManageCotations = new System.Windows.Forms.Button();
             this.pnlSidebar.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panelWindowTitle.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlSidebar
             // 
             this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(60)))), ((int)(((byte)(117)))));
+            this.pnlSidebar.Controls.Add(this.btnManageCotations);
+            this.pnlSidebar.Controls.Add(this.btnManageUser);
+            this.pnlSidebar.Controls.Add(this.panel1);
             this.pnlSidebar.Controls.Add(this.btnDocuments);
             this.pnlSidebar.Controls.Add(this.btnOperations);
             this.pnlSidebar.Controls.Add(this.btnProducts);
@@ -55,6 +65,63 @@ namespace LLWS
             this.pnlSidebar.Size = new System.Drawing.Size(235, 681);
             this.pnlSidebar.TabIndex = 0;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lblUserBudget);
+            this.panel1.Controls.Add(this.lblMyBudget);
+            this.panel1.Controls.Add(this.btnDeconnexion);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 532);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(235, 149);
+            this.panel1.TabIndex = 6;
+            // 
+            // lblUserBudget
+            // 
+            this.lblUserBudget.AutoSize = true;
+            this.lblUserBudget.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserBudget.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblUserBudget.Location = new System.Drawing.Point(8, 47);
+            this.lblUserBudget.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUserBudget.Name = "lblUserBudget";
+            this.lblUserBudget.Size = new System.Drawing.Size(59, 23);
+            this.lblUserBudget.TabIndex = 8;
+            this.lblUserBudget.Text = "label1";
+            // 
+            // lblMyBudget
+            // 
+            this.lblMyBudget.AutoSize = true;
+            this.lblMyBudget.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMyBudget.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblMyBudget.Location = new System.Drawing.Point(4, 11);
+            this.lblMyBudget.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMyBudget.Name = "lblMyBudget";
+            this.lblMyBudget.Size = new System.Drawing.Size(105, 23);
+            this.lblMyBudget.TabIndex = 7;
+            this.lblMyBudget.Text = "Mon budget";
+            // 
+            // btnDeconnexion
+            // 
+            this.btnDeconnexion.BackColor = System.Drawing.Color.Maroon;
+            this.btnDeconnexion.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnDeconnexion.FlatAppearance.BorderSize = 0;
+            this.btnDeconnexion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeconnexion.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeconnexion.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnDeconnexion.Image = global::LLWS.Properties.Resources.writing;
+            this.btnDeconnexion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeconnexion.Location = new System.Drawing.Point(0, 85);
+            this.btnDeconnexion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeconnexion.Name = "btnDeconnexion";
+            this.btnDeconnexion.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
+            this.btnDeconnexion.Size = new System.Drawing.Size(235, 64);
+            this.btnDeconnexion.TabIndex = 6;
+            this.btnDeconnexion.Text = "   Déconnexion";
+            this.btnDeconnexion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDeconnexion.UseVisualStyleBackColor = false;
+            this.btnDeconnexion.Click += new System.EventHandler(this.btnDeconnexion_Click);
+            // 
             // btnDocuments
             // 
             this.btnDocuments.Dock = System.Windows.Forms.DockStyle.Top;
@@ -64,8 +131,7 @@ namespace LLWS
             this.btnDocuments.ForeColor = System.Drawing.SystemColors.Control;
             this.btnDocuments.Image = global::LLWS.Properties.Resources.writing;
             this.btnDocuments.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-          
-            this.btnDocuments.Location = new System.Drawing.Point(0, 338);
+            this.btnDocuments.Location = new System.Drawing.Point(0, 210);
             this.btnDocuments.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDocuments.Name = "btnDocuments";
             this.btnDocuments.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
@@ -85,9 +151,7 @@ namespace LLWS
             this.btnOperations.ForeColor = System.Drawing.SystemColors.Control;
             this.btnOperations.Image = global::LLWS.Properties.Resources.chart;
             this.btnOperations.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-
-            this.btnOperations.Location = new System.Drawing.Point(0, 274);
-
+            this.btnOperations.Location = new System.Drawing.Point(0, 146);
             this.btnOperations.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnOperations.Name = "btnOperations";
             this.btnOperations.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
@@ -107,9 +171,7 @@ namespace LLWS
             this.btnProducts.ForeColor = System.Drawing.SystemColors.Control;
             this.btnProducts.Image = global::LLWS.Properties.Resources.cubes;
             this.btnProducts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-
-            this.btnProducts.Location = new System.Drawing.Point(0, 210);
-          
+            this.btnProducts.Location = new System.Drawing.Point(0, 82);
             this.btnProducts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnProducts.Name = "btnProducts";
             this.btnProducts.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
@@ -120,9 +182,6 @@ namespace LLWS
             this.btnProducts.UseVisualStyleBackColor = true;
             this.btnProducts.Click += new System.EventHandler(this.btnProducts_Click);
             // 
-
-            // 
-
             // panelLogo
             // 
             this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(42)))), ((int)(((byte)(86)))));
@@ -168,6 +227,45 @@ namespace LLWS
             this.panelMainWindow.Size = new System.Drawing.Size(1208, 599);
             this.panelMainWindow.TabIndex = 2;
             // 
+            // btnManageUser
+            // 
+            this.btnManageUser.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnManageUser.FlatAppearance.BorderSize = 0;
+            this.btnManageUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManageUser.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManageUser.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnManageUser.Image = global::LLWS.Properties.Resources.writing;
+            this.btnManageUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnManageUser.Location = new System.Drawing.Point(0, 274);
+            this.btnManageUser.Margin = new System.Windows.Forms.Padding(4);
+            this.btnManageUser.Name = "btnManageUser";
+            this.btnManageUser.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
+            this.btnManageUser.Size = new System.Drawing.Size(235, 64);
+            this.btnManageUser.TabIndex = 7;
+            this.btnManageUser.Text = "   Gestion utilisateurs";
+            this.btnManageUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnManageUser.UseVisualStyleBackColor = true;
+            this.btnManageUser.Click += new System.EventHandler(this.btnManageUser_Click);
+            // 
+            // btnManageCotations
+            // 
+            this.btnManageCotations.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnManageCotations.FlatAppearance.BorderSize = 0;
+            this.btnManageCotations.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManageCotations.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManageCotations.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnManageCotations.Image = global::LLWS.Properties.Resources.writing;
+            this.btnManageCotations.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnManageCotations.Location = new System.Drawing.Point(0, 338);
+            this.btnManageCotations.Margin = new System.Windows.Forms.Padding(4);
+            this.btnManageCotations.Name = "btnManageCotations";
+            this.btnManageCotations.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
+            this.btnManageCotations.Size = new System.Drawing.Size(235, 64);
+            this.btnManageCotations.TabIndex = 8;
+            this.btnManageCotations.Text = "   Gestion cotations";
+            this.btnManageCotations.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnManageCotations.UseVisualStyleBackColor = true;
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -176,13 +274,13 @@ namespace LLWS
             this.Controls.Add(this.panelMainWindow);
             this.Controls.Add(this.panelWindowTitle);
             this.Controls.Add(this.pnlSidebar);
-
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainMenu";
             this.Text = "Form1";
             this.pnlSidebar.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panelWindowTitle.ResumeLayout(false);
             this.panelWindowTitle.PerformLayout();
             this.ResumeLayout(false);
@@ -199,6 +297,12 @@ namespace LLWS
         private System.Windows.Forms.Panel panelWindowTitle;
         private System.Windows.Forms.Label labelWindowTitle;
         private System.Windows.Forms.Panel panelMainWindow;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblUserBudget;
+        private System.Windows.Forms.Label lblMyBudget;
+        private System.Windows.Forms.Button btnDeconnexion;
+        private System.Windows.Forms.Button btnManageCotations;
+        private System.Windows.Forms.Button btnManageUser;
     }
 }
 

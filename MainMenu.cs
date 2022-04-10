@@ -11,6 +11,7 @@ using LLWS.Core;
 using LLWS.UserInterface.Products;
 using Flurl.Http;
 using Newtonsoft.Json.Linq;
+using LLWS.Models;
 
 namespace LLWS
 {
@@ -24,6 +25,14 @@ namespace LLWS
         public MainMenu()
         {
             InitializeComponent();
+            this.lblUserBudget.Text = User.budget.ToString() + "€";
+
+            if(User.admin == 0)
+            {
+                this.btnManageUser.Visible = false;
+                this.btnManageCotations.Visible = false;
+            }
+
         }
 
 
@@ -103,6 +112,22 @@ namespace LLWS
             OpenActiveForm(new UserInterface.RegisterForm(), sender);
         }
 
+        //BOUTONS POUR ADMIN 
+
+        private async void btnManageUser_Click(object sender, EventArgs e)
+        {
+            string response = await GetListOfUser();
+            OpenActiveForm(new UserInterface.Responsable.ManageUsers(response), sender);
+        }
+
+        private void btnDeconnexion_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login loginForm = new Login();
+            loginForm.Show();
+        }
+
+
         #endregion
 
         private void panelWindowTitle_Paint(object sender, PaintEventArgs e)
@@ -129,12 +154,38 @@ namespace LLWS
             }
             else
             {
-                MessageBox.Show("APPEL RATE");
+                MessageBox.Show("Une erreur est survenue. Veuillez réessayer.");
             }
 
             return response;
 
         }
+
+        private static async Task<string> GetListOfUser()
+        {
+
+            string response = "";
+
+            var responseString = await APIManager.API_ROUTES_GET_USERS
+            .GetStringAsync();
+
+            JToken token = JToken.Parse(responseString);
+
+            if (token.SelectToken("status").ToString() == "SUCCESS")
+            {
+
+                response = token.SelectToken("result").ToString();
+
+            }
+            else
+            {
+                MessageBox.Show("Une erreur est survenue. Veuillez réessayer.");
+            }
+
+            return response;
+
+        }
+
 
     }
 }

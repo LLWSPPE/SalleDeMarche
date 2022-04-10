@@ -47,7 +47,8 @@ namespace LLWS
             {
                 userToken = (string)token.SelectToken("result[0].loginToken");
                 User.userToken = userToken;
-                
+                User.budget = (double)token.SelectToken("result[0].budget");
+                User.admin = (int)token.SelectToken("result[0].admin");
 
                 MainMenu mainMenu = new MainMenu();
                 mainMenu.Show();
@@ -66,6 +67,11 @@ namespace LLWS
 
             var task = GetApiData(email, password);
             var items = await task;
+
+            if(task.GetAwaiter().GetResult().ToString() != "")
+            {
+                this.Hide();
+            }
 
 
         }

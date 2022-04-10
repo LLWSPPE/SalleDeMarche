@@ -141,6 +141,7 @@
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Cotation.cs" />
+    <Compile Include="Models\Trader.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -155,6 +156,18 @@
     </Compile>
     <Compile Include="UserInterface\RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\Responsable\ManageUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserInterface\Responsable\ManageUsers.Designer.cs">
+      <DependentUpon>ManageUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\Responsable\ManageUserWindows.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserInterface\Responsable\ManageUserWindows.Designer.cs">
+      <DependentUpon>ManageUserWindows.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -177,6 +190,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserInterface\RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserInterface\Responsable\ManageUsers.resx">
+      <DependentUpon>ManageUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserInterface\Responsable\ManageUserWindows.resx">
+      <DependentUpon>ManageUserWindows.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -210,6 +229,8 @@
   <ItemGroup>
     <None Include="Resources\writing.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="UserInterface\Administrator\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -26,9 +26,11 @@ namespace LLWS.UserInterface
         }
 
 
-        private static async Task sendRegisterFormToAPI(string firstName, string lastName, string email, string password, string confirmPassword)
+        private static async Task<bool> sendRegisterFormToAPI(string firstName, string lastName, string email, string password, string confirmPassword)
         {
 
+            bool isRegisterSuccess = false;
+            
             var responseString = await APIManager.API_ROUTE_REGISTER
             .PostUrlEncodedAsync(new { firstName = firstName, lastName = lastName, email = email, password = password, confirmPassword = confirmPassword })
             .ReceiveString();
@@ -43,19 +45,15 @@ namespace LLWS.UserInterface
             if (token.SelectToken("status").ToString() == "SUCCESS")
             {
                 MessageBox.Show("Utilisateur enregistré. Vous pouvez désormais vous connecter avec vos nouveaux identifiants");
-
-
+                isRegisterSuccess = true;
             }
+
+            return isRegisterSuccess;
 
         }
 
         private async void btnRegister_Click(object sender, EventArgs e)
         {
-            //Chaque fois qu'on clique le bouton, on remet les erreurs à 0, sinon elles s'accumulent.
-            if(this.errors.Count > 0)
-            {
-                this.errors.Clear();
-            }
 
             string firstName = this.txbFirstName.Text;
             string lastName = this.txbLastName.Text;
@@ -66,16 +64,12 @@ namespace LLWS.UserInterface
             var task = sendRegisterFormToAPI(firstName, lastName, email, password, confirmPassword);
             await task;
 
-
-            if (this.errors.Count > 0)
+            if(task.GetAwaiter().GetResult() == true)
             {
-                //Si le tableau d'erreur n'est pas vide, on affiche un label rouge contenant le premier message d'erreur (ordre de verification)
-                this.lblError.Show();
-                this.lblError.Text = this.errors[0];
-                this.lblError.ForeColor = Color.Red;
+                this.Hide();
+                Login loginForm = new Login();
+                loginForm.Show();
             }
-
-
 
         }
 

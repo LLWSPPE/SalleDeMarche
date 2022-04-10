@@ -202,7 +202,6 @@ namespace LLWS
             this.panelWindowTitle.Name = "panelWindowTitle";
             this.panelWindowTitle.Size = new System.Drawing.Size(1208, 82);
             this.panelWindowTitle.TabIndex = 1;
-            this.panelWindowTitle.Paint += new System.Windows.Forms.PaintEventHandler(this.panelWindowTitle_Paint);
             // 
             // labelWindowTitle
             // 

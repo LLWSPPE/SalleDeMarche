@@ -27,6 +27,7 @@ namespace LLWS
             InitializeComponent();
             this.lblUserBudget.Text = User.budget.ToString() + "€";
 
+            //On cache les boutons si l'utilisateur de la session n'est pas un admin / responsable
             if(User.admin == 0)
             {
                 this.btnManageUser.Visible = false;
@@ -36,13 +37,52 @@ namespace LLWS
         }
 
 
-        #region BtnFunction
+        #region "Action des boutons"
+
+        // Liste des actions associées aux boutons
+        //Les boutons avec une fonction "async" ont pour effet d'appeller de manière asynchrone une fonction qui chargera une réponse de l'API.
+        //Tant qu'aucune réponse n'a été reçue, le composant de la Form correspondant ne chargera pas.
+        private async void btnProducts_Click(object sender, EventArgs e)
+        {
+            string response = await GetAllCotations();
+            OpenActiveForm(new UserInterface.Products.Products(response), sender);
+        }
+
+        private void btnOperations_Click(object sender, EventArgs e)
+        {
+            OpenActiveForm(new UserInterface.RegisterForm(), sender);
+        }
+
+        private void btnDocuments_Click(object sender, EventArgs e)
+        {
+            OpenActiveForm(new UserInterface.RegisterForm(), sender);
+        }
+
+        private void btnDeconnexion_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login loginForm = new Login();
+            loginForm.Show();
+        }
+
+        //BOUTONS POUR ADMIN 
+
+        private async void btnManageUser_Click(object sender, EventArgs e)
+        {
+            string response = await GetListOfUser();
+            OpenActiveForm(new UserInterface.Responsable.ManageUsers(response), sender);
+        }
+
+
+        #endregion
+
+        #region "Fonctions associées aux boutons"
         private void ActivateButton(object sender)
         {
             //Active un bouton lorsqu'il est cliqué, change sa couleur et la police.
-            if(sender != null)
+            if (sender != null)
             {
-                if(activeBtn != (Button)sender)
+                if (activeBtn != (Button)sender)
                 {
                     DesactivateOtherButton();
                     activeBtn = (Button)sender;
@@ -55,7 +95,7 @@ namespace LLWS
         private void DesactivateOtherButton()
         {
             //Lorsqu'un bouton est cliqué, cette fonction est appellée et désactive les autres boutons (remet la couleur et l'ancienne police)
-            foreach(Control resetBtn in pnlSidebar.Controls)
+            foreach (Control resetBtn in pnlSidebar.Controls)
             {
                 resetBtn.BackColor = Color.FromArgb(39, 60, 117);
                 resetBtn.ForeColor = Color.White;
@@ -70,7 +110,7 @@ namespace LLWS
              * On change le titre du label en haut (labelWindowTitle)
              * le panelMainWindow se transforme en le Form qui lui correspond
              */
-            if(activeForm != null)
+            if (activeForm != null)
             {
                 activeForm.Close();
             }
@@ -92,50 +132,7 @@ namespace LLWS
 
         #endregion
 
-        #region btnActions
-
-        // Liste des actions associées aux boutons
-
-        private async void btnProducts_Click(object sender, EventArgs e)
-        {
-            string response = await GetAllCotations();
-            OpenActiveForm(new UserInterface.Products.Products(response), sender);
-        }
-
-        private void btnOperations_Click(object sender, EventArgs e)
-        {
-            OpenActiveForm(new UserInterface.RegisterForm(), sender);
-        }
-
-        private void btnDocuments_Click(object sender, EventArgs e)
-        {
-            OpenActiveForm(new UserInterface.RegisterForm(), sender);
-        }
-
-        //BOUTONS POUR ADMIN 
-
-        private async void btnManageUser_Click(object sender, EventArgs e)
-        {
-            string response = await GetListOfUser();
-            OpenActiveForm(new UserInterface.Responsable.ManageUsers(response), sender);
-        }
-
-        private void btnDeconnexion_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Login loginForm = new Login();
-            loginForm.Show();
-        }
-
-
-        #endregion
-
-        private void panelWindowTitle_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-
+        #region "Tâches asynchrones"
         private static async Task<string> GetAllCotations()
         {
 
@@ -185,6 +182,8 @@ namespace LLWS
             return response;
 
         }
+
+        #endregion
 
 
     }

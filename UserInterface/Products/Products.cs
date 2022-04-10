@@ -26,8 +26,11 @@ namespace LLWS.UserInterface.Products
 
         }
 
+        #region "Fonctions d'initialisation des composants"
         private void setUpDataGridView()
         {
+
+            //Initialisation du DataGridView
             dtgCotations.Size = new Size(this.Size.Width - 10, this.Size.Height - 30);
 
             dtgCotations.ColumnCount = 10;
@@ -43,10 +46,16 @@ namespace LLWS.UserInterface.Products
             dtgCotations.Columns[8].Name = "Prix haut";
             dtgCotations.Columns[9].Name = "Prix bas";
 
+            //Appel de la fonction de remplissage du Dtg
             remplirDataGridView();
 
         }
 
+        /*
+         * On récupére les données de la réponse JSON reçue.
+         * On la désérialise : on récupère chaque propriété du JSON qu'on instancie en nouvel Object Cotation 
+         * Chaque cotation sera placée dans une Liste de Cotation, et on itèrera à travers celle-ci pour remplir les données du datagridview
+         */
         private void remplirDataGridView()
         {
             var model = JsonConvert.DeserializeObject<List<Cotation>>(this.response);
@@ -68,7 +77,7 @@ namespace LLWS.UserInterface.Products
                );
             }
         }
-
+        #endregion
 
     }
 }

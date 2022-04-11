@@ -23,12 +23,15 @@ namespace LLWS.UserInterface.Products
             InitializeComponent();
             this.response = response;
             setUpDataGridView();
+            this.Text = "Cotations du jour";
 
         }
 
         #region "Fonctions d'initialisation des composants"
         private void setUpDataGridView()
         {
+
+           
 
             //Initialisation du DataGridView
             dtgCotations.Size = new Size(this.Size.Width - 10, this.Size.Height - 30);

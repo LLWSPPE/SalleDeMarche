@@ -30,6 +30,11 @@ namespace LLWS.Core
         //Cotations
         public static string API_ROUTES_GET_ALL_COTATIONS = API_BASE_URL + "/cotations/get";
 
+        //Utilisateur
+        public static string API_ROUTES_GET_USER_PORTEFEUILLE = API_BASE_URL + "/users/portefeuille/";
+        public static string API_ROUTES_POST_SELL = API_BASE_URL + "/cotations/sell";
+        public static string API_ROUTES_POST_BUY = API_BASE_URL + "/cotations/buy";
+
         //Admin & responsable
         public static string API_ROUTES_GET_USERS = API_BASE_URL + "/admin/users";
         public static string API_ROUTES_GET_SPECIFIC_USER = API_BASE_URL + "/admin/user/"; // L'appel devra se faire avec une valeur d'id

@@ -117,4 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="lblSubBonjour.Text" xml:space="preserve">
+    <value>Nous vous souhaitons une agréable navigation, vous pouvez effectuer des opérations d'Achat et de vente depuis le Menu "Achats / ventes",
+ consultez vos différents mouvements depuis le menu "Mes mouvements"</value>
+  </data>
 </root>

@@ -141,10 +141,17 @@
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Cotation.cs" />
+    <Compile Include="Models\Portefeuille.cs" />
     <Compile Include="Models\Trader.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserInterface\Operations\Operations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserInterface\Operations\Operations.Designer.cs">
+      <DependentUpon>Operations.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserInterface\Products\Products.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +192,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserInterface\Operations\Operations.resx">
+      <DependentUpon>Operations.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserInterface\Products\Products.resx">
       <DependentUpon>Products.cs</DependentUpon>
     </EmbeddedResource>

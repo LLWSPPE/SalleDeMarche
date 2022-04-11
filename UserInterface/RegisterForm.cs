@@ -22,7 +22,6 @@ namespace LLWS.UserInterface
         public RegisterForm()
         {
             InitializeComponent();
-            lblError.Hide();
         }
 
 

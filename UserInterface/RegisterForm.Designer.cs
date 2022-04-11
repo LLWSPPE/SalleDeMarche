@@ -29,7 +29,7 @@ namespace LLWS.UserInterface
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblnscription = new System.Windows.Forms.Label();
             this.txbFirstName = new System.Windows.Forms.TextBox();
             this.txbLastName = new System.Windows.Forms.TextBox();
             this.txbEmail = new System.Windows.Forms.TextBox();
@@ -37,26 +37,28 @@ namespace LLWS.UserInterface
             this.txbConfirmPassword = new System.Windows.Forms.TextBox();
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnReturnToLogin = new System.Windows.Forms.Button();
-            this.lblError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // lblnscription
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(371, 106);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Inscription page";
+            this.lblnscription.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblnscription.AutoSize = true;
+            this.lblnscription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblnscription.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblnscription.Location = new System.Drawing.Point(327, 93);
+            this.lblnscription.Name = "lblnscription";
+            this.lblnscription.Size = new System.Drawing.Size(165, 25);
+            this.lblnscription.TabIndex = 0;
+            this.lblnscription.Text = "Inscription page";
             // 
             // txbFirstName
             // 
             this.txbFirstName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txbFirstName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbFirstName.Location = new System.Drawing.Point(194, 154);
             this.txbFirstName.Margin = new System.Windows.Forms.Padding(2);
             this.txbFirstName.Name = "txbFirstName";
-            this.txbFirstName.Size = new System.Drawing.Size(210, 20);
+            this.txbFirstName.Size = new System.Drawing.Size(210, 27);
             this.txbFirstName.TabIndex = 1;
             this.txbFirstName.Text = "Nom";
             this.txbFirstName.TextChanged += new System.EventHandler(this.txbFirstName_TextChanged);
@@ -66,10 +68,11 @@ namespace LLWS.UserInterface
             // txbLastName
             // 
             this.txbLastName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txbLastName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbLastName.Location = new System.Drawing.Point(419, 154);
             this.txbLastName.Margin = new System.Windows.Forms.Padding(2);
             this.txbLastName.Name = "txbLastName";
-            this.txbLastName.Size = new System.Drawing.Size(210, 20);
+            this.txbLastName.Size = new System.Drawing.Size(210, 27);
             this.txbLastName.TabIndex = 2;
             this.txbLastName.Text = "Prénom";
             this.txbLastName.Enter += new System.EventHandler(this.txbLastName_Enter);
@@ -78,10 +81,11 @@ namespace LLWS.UserInterface
             // txbEmail
             // 
             this.txbEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txbEmail.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbEmail.Location = new System.Drawing.Point(194, 201);
             this.txbEmail.Margin = new System.Windows.Forms.Padding(2);
             this.txbEmail.Name = "txbEmail";
-            this.txbEmail.Size = new System.Drawing.Size(436, 20);
+            this.txbEmail.Size = new System.Drawing.Size(436, 27);
             this.txbEmail.TabIndex = 3;
             this.txbEmail.Text = "Email";
             this.txbEmail.Enter += new System.EventHandler(this.txbEmail_Enter);
@@ -90,10 +94,11 @@ namespace LLWS.UserInterface
             // txbPassword
             // 
             this.txbPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txbPassword.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbPassword.Location = new System.Drawing.Point(193, 241);
             this.txbPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txbPassword.Name = "txbPassword";
-            this.txbPassword.Size = new System.Drawing.Size(436, 20);
+            this.txbPassword.Size = new System.Drawing.Size(436, 27);
             this.txbPassword.TabIndex = 4;
             this.txbPassword.Text = "Mot de passe";
             this.txbPassword.Enter += new System.EventHandler(this.txbPassword_Enter);
@@ -102,10 +107,11 @@ namespace LLWS.UserInterface
             // txbConfirmPassword
             // 
             this.txbConfirmPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txbConfirmPassword.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbConfirmPassword.Location = new System.Drawing.Point(194, 280);
             this.txbConfirmPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txbConfirmPassword.Name = "txbConfirmPassword";
-            this.txbConfirmPassword.Size = new System.Drawing.Size(436, 20);
+            this.txbConfirmPassword.Size = new System.Drawing.Size(436, 27);
             this.txbConfirmPassword.TabIndex = 5;
             this.txbConfirmPassword.Text = "Confirmez le mot de passe";
             this.txbConfirmPassword.Enter += new System.EventHandler(this.txbConfirmPassword_Enter);
@@ -114,35 +120,33 @@ namespace LLWS.UserInterface
             // btnRegister
             // 
             this.btnRegister.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnRegister.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnRegister.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegister.ForeColor = System.Drawing.SystemColors.Control;
             this.btnRegister.Location = new System.Drawing.Point(385, 342);
             this.btnRegister.Margin = new System.Windows.Forms.Padding(2);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(56, 19);
+            this.btnRegister.Size = new System.Drawing.Size(244, 39);
             this.btnRegister.TabIndex = 11;
             this.btnRegister.Text = "M\'inscrire";
-            this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.UseVisualStyleBackColor = false;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // btnReturnToLogin
             // 
             this.btnReturnToLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnReturnToLogin.BackColor = System.Drawing.Color.LightSalmon;
+            this.btnReturnToLogin.FlatAppearance.BorderSize = 0;
+            this.btnReturnToLogin.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturnToLogin.ForeColor = System.Drawing.SystemColors.Control;
             this.btnReturnToLogin.Location = new System.Drawing.Point(194, 342);
             this.btnReturnToLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnReturnToLogin.Name = "btnReturnToLogin";
-            this.btnReturnToLogin.Size = new System.Drawing.Size(84, 19);
+            this.btnReturnToLogin.Size = new System.Drawing.Size(119, 39);
             this.btnReturnToLogin.TabIndex = 13;
             this.btnReturnToLogin.Text = "Retour";
-            this.btnReturnToLogin.UseVisualStyleBackColor = true;
+            this.btnReturnToLogin.UseVisualStyleBackColor = false;
             this.btnReturnToLogin.Click += new System.EventHandler(this.btnReturnToLogin_Click);
-            // 
-            // lblError
-            // 
-            this.lblError.AutoSize = true;
-            this.lblError.Location = new System.Drawing.Point(21, 401);
-            this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(39, 13);
-            this.lblError.TabIndex = 14;
-            this.lblError.Text = "lblError";
             // 
             // RegisterForm
             // 
@@ -150,7 +154,6 @@ namespace LLWS.UserInterface
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(60)))), ((int)(((byte)(117)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lblError);
             this.Controls.Add(this.btnReturnToLogin);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.txbConfirmPassword);
@@ -158,7 +161,7 @@ namespace LLWS.UserInterface
             this.Controls.Add(this.txbEmail);
             this.Controls.Add(this.txbLastName);
             this.Controls.Add(this.txbFirstName);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblnscription);
             this.Name = "RegisterForm";
             this.Text = "RegisterForm";
             this.ResumeLayout(false);
@@ -168,7 +171,7 @@ namespace LLWS.UserInterface
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblnscription;
         private System.Windows.Forms.TextBox txbFirstName;
         private System.Windows.Forms.TextBox txbLastName;
         private System.Windows.Forms.TextBox txbEmail;
@@ -176,6 +179,5 @@ namespace LLWS.UserInterface
         private System.Windows.Forms.TextBox txbConfirmPassword;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Button btnReturnToLogin;
-        private System.Windows.Forms.Label lblError;
     }
 }

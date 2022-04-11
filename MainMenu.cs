@@ -36,6 +36,11 @@ namespace LLWS
 
         }
 
+        private void MainMenu_Shown(object sender, EventArgs e)
+        {
+            btnProducts.PerformClick();
+        }
+
 
         #region "Action des boutons"
 
@@ -48,9 +53,11 @@ namespace LLWS
             OpenActiveForm(new UserInterface.Products.Products(response), sender);
         }
 
-        private void btnOperations_Click(object sender, EventArgs e)
+        private async void btnOperations_Click(object sender, EventArgs e)
         {
-            OpenActiveForm(new UserInterface.RegisterForm(), sender);
+            string reponsePortefeuille = await GetPortefeuille();
+            string reponseCotations = await GetAllCotations();
+            OpenActiveForm(new UserInterface.Operations.Operations(reponsePortefeuille, reponseCotations), sender);
         }
 
         private void btnDocuments_Click(object sender, EventArgs e)
@@ -158,6 +165,34 @@ namespace LLWS
 
         }
 
+        private static async Task<string> GetPortefeuille()
+        {
+
+            string response = "";
+            string apiRoute = APIManager.API_ROUTES_GET_USER_PORTEFEUILLE + User.id.ToString();
+
+            var responseString = await apiRoute
+            .GetStringAsync();
+
+            JToken token = JToken.Parse(responseString);
+
+            if (token.SelectToken("status").ToString() == "SUCCESS")
+            {
+
+                response = token.SelectToken("portefeuille").ToString();
+
+            }
+            else
+            {
+                MessageBox.Show("Une erreur est survenue. Veuillez réessayer.");
+            }
+
+            return response;
+
+        }
+
+
+
         private static async Task<string> GetListOfUser()
         {
 
@@ -183,8 +218,9 @@ namespace LLWS
 
         }
 
+
         #endregion
 
-
+       
     }
 }

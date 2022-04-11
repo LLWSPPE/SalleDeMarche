@@ -24,7 +24,8 @@ namespace LLWS
         public Login()
         {
             InitializeComponent();
-           
+            this.txbPassword.PasswordChar = '•';
+
         }
 
         #region "Actions des boutons"
@@ -112,6 +113,11 @@ namespace LLWS
                 //Si les infos sont correctes
                 userToken = (string)token.SelectToken("result[0].loginToken");
                 //Le token et les informations de la session sont stockées dans la classe statique.
+
+                
+                User.id = (int)token.SelectToken("result[0].id");
+                User.first_name = (string)token.SelectToken("result[0].first_name");
+                User.last_name = (string)token.SelectToken("result[0].last_name");
                 User.userToken = userToken;
                 User.budget = (double)token.SelectToken("result[0].budget");
                 User.admin = (int)token.SelectToken("result[0].admin");

@@ -24,6 +24,7 @@ namespace LLWS.UserInterface.Responsable
             InitializeComponent();
             this.response = response;
             setUpDataGridView();
+            this.Text = "Gestion des utilisateurs";
         }
 
         #region "Fonctions d'initialisation des composants"

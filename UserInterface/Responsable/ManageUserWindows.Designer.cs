@@ -59,7 +59,7 @@ namespace LLWS.UserInterface.Responsable
             this.pnlActions.Controls.Add(this.btnSuspension);
             this.pnlActions.Controls.Add(this.btnPromoteResponsable);
             this.pnlActions.Location = new System.Drawing.Point(9, 10);
-            this.pnlActions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlActions.Margin = new System.Windows.Forms.Padding(2);
             this.pnlActions.Name = "pnlActions";
             this.pnlActions.Size = new System.Drawing.Size(150, 321);
             this.pnlActions.TabIndex = 0;
@@ -67,7 +67,7 @@ namespace LLWS.UserInterface.Responsable
             // txbMontantAjout
             // 
             this.txbMontantAjout.Location = new System.Drawing.Point(16, 246);
-            this.txbMontantAjout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbMontantAjout.Margin = new System.Windows.Forms.Padding(2);
             this.txbMontantAjout.Name = "txbMontantAjout";
             this.txbMontantAjout.Size = new System.Drawing.Size(122, 20);
             this.txbMontantAjout.TabIndex = 7;
@@ -78,7 +78,7 @@ namespace LLWS.UserInterface.Responsable
             this.btnRehabilitation.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRehabilitation.ForeColor = System.Drawing.SystemColors.Control;
             this.btnRehabilitation.Location = new System.Drawing.Point(16, 122);
-            this.btnRehabilitation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRehabilitation.Margin = new System.Windows.Forms.Padding(2);
             this.btnRehabilitation.Name = "btnRehabilitation";
             this.btnRehabilitation.Size = new System.Drawing.Size(122, 43);
             this.btnRehabilitation.TabIndex = 6;
@@ -92,7 +92,7 @@ namespace LLWS.UserInterface.Responsable
             this.btnRevoquerUser.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRevoquerUser.ForeColor = System.Drawing.SystemColors.Control;
             this.btnRevoquerUser.Location = new System.Drawing.Point(16, 69);
-            this.btnRevoquerUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRevoquerUser.Margin = new System.Windows.Forms.Padding(2);
             this.btnRevoquerUser.Name = "btnRevoquerUser";
             this.btnRevoquerUser.Size = new System.Drawing.Size(122, 48);
             this.btnRevoquerUser.TabIndex = 5;
@@ -115,7 +115,7 @@ namespace LLWS.UserInterface.Responsable
             // 
             this.btnAccorderBudget.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAccorderBudget.Location = new System.Drawing.Point(16, 268);
-            this.btnAccorderBudget.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAccorderBudget.Margin = new System.Windows.Forms.Padding(2);
             this.btnAccorderBudget.Name = "btnAccorderBudget";
             this.btnAccorderBudget.Size = new System.Drawing.Size(122, 42);
             this.btnAccorderBudget.TabIndex = 2;
@@ -129,7 +129,7 @@ namespace LLWS.UserInterface.Responsable
             this.btnSuspension.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSuspension.ForeColor = System.Drawing.SystemColors.Control;
             this.btnSuspension.Location = new System.Drawing.Point(16, 170);
-            this.btnSuspension.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSuspension.Margin = new System.Windows.Forms.Padding(2);
             this.btnSuspension.Name = "btnSuspension";
             this.btnSuspension.Size = new System.Drawing.Size(122, 43);
             this.btnSuspension.TabIndex = 1;
@@ -143,7 +143,7 @@ namespace LLWS.UserInterface.Responsable
             this.btnPromoteResponsable.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPromoteResponsable.ForeColor = System.Drawing.SystemColors.Control;
             this.btnPromoteResponsable.Location = new System.Drawing.Point(16, 24);
-            this.btnPromoteResponsable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPromoteResponsable.Margin = new System.Windows.Forms.Padding(2);
             this.btnPromoteResponsable.Name = "btnPromoteResponsable";
             this.btnPromoteResponsable.Size = new System.Drawing.Size(122, 40);
             this.btnPromoteResponsable.TabIndex = 0;
@@ -165,7 +165,7 @@ namespace LLWS.UserInterface.Responsable
             // txbFirstName
             // 
             this.txbFirstName.Location = new System.Drawing.Point(181, 69);
-            this.txbFirstName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbFirstName.Margin = new System.Windows.Forms.Padding(2);
             this.txbFirstName.Name = "txbFirstName";
             this.txbFirstName.Size = new System.Drawing.Size(150, 20);
             this.txbFirstName.TabIndex = 2;
@@ -173,7 +173,7 @@ namespace LLWS.UserInterface.Responsable
             // txbLastName
             // 
             this.txbLastName.Location = new System.Drawing.Point(386, 69);
-            this.txbLastName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbLastName.Margin = new System.Windows.Forms.Padding(2);
             this.txbLastName.Name = "txbLastName";
             this.txbLastName.Size = new System.Drawing.Size(152, 20);
             this.txbLastName.TabIndex = 3;
@@ -181,7 +181,7 @@ namespace LLWS.UserInterface.Responsable
             // txbEmail
             // 
             this.txbEmail.Location = new System.Drawing.Point(181, 119);
-            this.txbEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbEmail.Margin = new System.Windows.Forms.Padding(2);
             this.txbEmail.Name = "txbEmail";
             this.txbEmail.Size = new System.Drawing.Size(356, 20);
             this.txbEmail.TabIndex = 4;
@@ -223,7 +223,7 @@ namespace LLWS.UserInterface.Responsable
             // 
             this.btnEditInformations.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditInformations.Location = new System.Drawing.Point(181, 156);
-            this.btnEditInformations.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEditInformations.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditInformations.Name = "btnEditInformations";
             this.btnEditInformations.Size = new System.Drawing.Size(356, 34);
             this.btnEditInformations.TabIndex = 8;
@@ -245,8 +245,9 @@ namespace LLWS.UserInterface.Responsable
             this.Controls.Add(this.txbFirstName);
             this.Controls.Add(this.lblUserTitre);
             this.Controls.Add(this.pnlActions);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ManageUserWindows";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ManageUserWindows";
             this.pnlActions.ResumeLayout(false);
             this.pnlActions.PerformLayout();

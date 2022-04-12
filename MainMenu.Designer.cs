@@ -239,8 +239,9 @@ namespace LLWS
             this.Controls.Add(this.panelWindowTitle);
             this.Controls.Add(this.pnlSidebar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainMenu";
-            this.Text = "Form1";
+            this.Text = "LLWS Network";
             this.Shown += new System.EventHandler(this.MainMenu_Shown);
             this.pnlSidebar.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

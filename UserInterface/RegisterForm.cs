@@ -10,14 +10,12 @@ using System.Windows.Forms;
 using LLWS.Core;
 using Flurl.Http;
 using Newtonsoft.Json.Linq;
+using LLWS.Core;
 
 namespace LLWS.UserInterface
 {
     public partial class RegisterForm : Form
     {
-
-        List<string> errors = new List<string>();
-        
 
         public RegisterForm()
         {
@@ -87,9 +85,7 @@ namespace LLWS.UserInterface
         {
             if (txbConfirmPassword.Text == "") txbConfirmPassword.Text = "Confirmez le mot de passe";
         }
-        #endregion
 
-        #region "Action asynchrone du bouton"
         private async void btnRegister_Click(object sender, EventArgs e)
         {
 
@@ -99,46 +95,36 @@ namespace LLWS.UserInterface
             string password = this.txbPassword.Text;
             string confirmPassword = this.txbPassword.Text;
 
-            var task = sendRegisterFormToAPI(firstName, lastName, email, password, confirmPassword);
-            await task;
+            string route = APIManager.API_ROUTE_REGISTER;
 
-            if (task.GetAwaiter().GetResult() == true)
+            var donnees = new
             {
+                firstName = firstName,
+                lastName = lastName,
+                email = email,
+                password = password,
+                confirmPassword = confirmPassword
+            };
+
+            JToken reponse = await APIManager.posterData(route, donnees);
+
+            if (reponse.SelectToken("status").ToString() == "ERROR")
+            {
+                MessageBox.Show(reponse.SelectToken("message").ToString());
+            }
+            else
+            {
+               
+                MessageBox.Show("Utilisateur enregistré. Vous pouvez désormais vous connecter avec vos nouveaux identifiants");
                 this.Hide();
+
                 Login loginForm = new Login();
                 loginForm.Show();
+
             }
 
         }
         #endregion
 
-        #region "Tâche asynchrone"
-        private static async Task<bool> sendRegisterFormToAPI(string firstName, string lastName, string email, string password, string confirmPassword)
-        {
-
-            bool isRegisterSuccess = false;
-
-            var responseString = await APIManager.API_ROUTE_REGISTER
-            .PostUrlEncodedAsync(new { firstName = firstName, lastName = lastName, email = email, password = password, confirmPassword = confirmPassword })
-            .ReceiveString();
-
-            JToken token = JToken.Parse(responseString);
-
-            if (token.SelectToken("status").ToString() == "ERROR")
-            {
-                MessageBox.Show(token.SelectToken("message").ToString());
-            }
-
-            if (token.SelectToken("status").ToString() == "SUCCESS")
-            {
-                MessageBox.Show("Utilisateur enregistré. Vous pouvez désormais vous connecter avec vos nouveaux identifiants");
-                isRegisterSuccess = true;
-            }
-
-            return isRegisterSuccess;
-
-        }
-
-        #endregion
     }
 }

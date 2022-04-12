@@ -92,11 +92,14 @@ namespace LLWS.UserInterface.Responsable
         {
             if (e.ColumnIndex == 9)
             {
+                int userId = Int32.Parse(dtgUsers.Rows[e.RowIndex].Cells[0].Value.ToString());
+                string route = APIManager.API_ROUTES_GET_SPECIFIC_USER + userId.ToString();
+
                 //On récupère la valeur (int = id) puis on la passe en paramètre pour récupérer un utilisateur via l'API via GetUser()
-                string response = await GetUser(Int32.Parse(dtgUsers.Rows[e.RowIndex].Cells[0].Value.ToString()));
+                JToken reponse = await APIManager.recevoirData(route);
 
                 //On désérialise le json en Trader
-                Trader traderToManage = JsonConvert.DeserializeObject<Trader>(response);
+                Trader traderToManage = JsonConvert.DeserializeObject<Trader>(reponse.SelectToken("result[0]").ToString());
 
                 //On ouvre une nouvelle fenêtre ManagerUserWindow en passant le trader en paramètre.
                 //Cette fenêtre sera dédiée à l'instance de cet utilisateur.
@@ -109,33 +112,5 @@ namespace LLWS.UserInterface.Responsable
 
         #endregion
 
-        #region "Tâches asynchrones"
-        private static async Task<string> GetUser(int userId)
-        {
-
-            string response = "";
-            string apiRoute = APIManager.API_ROUTES_GET_SPECIFIC_USER + userId.ToString();
-
-            var responseString = await apiRoute
-            .GetStringAsync();
-
-            JToken token = JToken.Parse(responseString);
-
-            if (token.SelectToken("status").ToString() == "SUCCESS")
-            {
-
-                response = token.SelectToken("result[0]").ToString();
-
-            }
-            else
-            {
-                MessageBox.Show("Une erreur est survenue. Veuillez réessayer.");
-            }
-
-            return response;
-
-        }
-
-        #endregion
     }
 }

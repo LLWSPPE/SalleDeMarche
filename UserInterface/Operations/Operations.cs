@@ -48,6 +48,8 @@ namespace LLWS.UserInterface.Operations
             dtgMonPortefeuille.Columns[3].Name = "Titres possédés";
             dtgMonPortefeuille.Columns[4].Name = "Valeur actuelle";
 
+            dtgMonPortefeuille.Columns["id"].Visible = false;
+
             dtgMonPortefeuille.Columns["Valeur actuelle"].DefaultCellStyle.BackColor = Color.LightSeaGreen;
             dtgMonPortefeuille.Columns["Valeur actuelle"].DefaultCellStyle.ForeColor = Color.White;
 
@@ -68,45 +70,61 @@ namespace LLWS.UserInterface.Operations
             dtgCotations.Columns["Valeur actuelle"].DefaultCellStyle.BackColor = Color.LightSeaGreen;
             dtgCotations.Columns["Valeur actuelle"].DefaultCellStyle.ForeColor = Color.White;
 
-            remplirDataGridView();
+            remplirDtgPortefeuille(this.reponsePortefeuille);
+            remplirDtgCotations(this.reponseCotations);
 
         }
 
-        private void remplirDataGridView()
+        private void remplirDtgPortefeuille(string donneesPortefeuille)
         {
-            var listActionsPortefeuille = JsonConvert.DeserializeObject<List<Portefeuille>>(this.reponsePortefeuille);
+            var listActionsPortefeuille = JsonConvert.DeserializeObject<List<Portefeuille>>(donneesPortefeuille);
 
-            foreach (Portefeuille actionPortefeuille in listActionsPortefeuille)
+            if (listActionsPortefeuille != null)
             {
+                foreach (Portefeuille actionPortefeuille in listActionsPortefeuille)
+                {
 
-                dtgMonPortefeuille.Rows.Add(
-                    actionPortefeuille.id.ToString(),
-                    actionPortefeuille.isin_code.ToString(),
-                    actionPortefeuille.full_name.ToString(),
-                    actionPortefeuille.quantite.ToString(),
-                    actionPortefeuille.stock_closing_value.ToString()
-               );
+                    dtgMonPortefeuille.Rows.Add(
+                        actionPortefeuille.id.ToString(),
+                        actionPortefeuille.isin_code.ToString(),
+                        actionPortefeuille.full_name.ToString(),
+                        actionPortefeuille.quantite.ToString(),
+                        actionPortefeuille.stock_closing_value.ToString()
+                   );
+                }
             }
+        }
 
-            var listActionsJour = JsonConvert.DeserializeObject<List<Cotation>>(this.reponseCotations);
+        private void remplirDtgCotations(string donneesCotations) { 
+            var listActionsJour = JsonConvert.DeserializeObject<List<Cotation>>(donneesCotations);
 
-            foreach (Cotation cotation in listActionsJour)
+            if(listActionsJour != null)
             {
+                foreach (Cotation cotation in listActionsJour)
+                {
 
-                dtgCotations.Rows.Add(
-                    cotation.id.ToString(),
-                    cotation.stock_volume.ToString(),
-                    cotation.full_name.ToString(),
-                    cotation.ticker_code.ToString(),
-                    cotation.isin_code.ToString(),
-                    cotation.stock_date.ToString(),
-                    cotation.stock_opening_value.ToString(),
-                    cotation.stock_closing_value.ToString(),
-                    cotation.stock_highest_value.ToString(),
-                    cotation.stock_lowest_value.ToString(),
-                    cotation.stock_closing_value.ToString()
-               );
+                    dtgCotations.Rows.Add(
+                        cotation.id.ToString(),
+                        cotation.stock_volume.ToString(),
+                        cotation.full_name.ToString(),
+                        cotation.ticker_code.ToString(),
+                        cotation.isin_code.ToString(),
+                        cotation.stock_date.ToString(),
+                        cotation.stock_opening_value.ToString(),
+                        cotation.stock_closing_value.ToString(),
+                        cotation.stock_highest_value.ToString(),
+                        cotation.stock_lowest_value.ToString(),
+                        cotation.stock_closing_value.ToString()
+                   );
+                }
             }
+        }
+
+        private void rechargerPortefeuille(string nouvelleDonnees)
+        {
+            this.lblMyBudget.Text = "Mon budget : " + User.budget.ToString() + "€";
+            dtgMonPortefeuille.Rows.Clear();
+            remplirDtgPortefeuille(nouvelleDonnees);
         }
 
         private void dtgMonPortefeuille_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -148,7 +166,27 @@ namespace LLWS.UserInterface.Operations
             };
 
             JToken reponse = await APIManager.posterData(route, donnees);
+            if(reponse.SelectToken("status").ToString() == "SUCCESS")
+            {
+                User.budget = (double)reponse.SelectToken("budgetAChanger");
+
+                JToken recharge = await APIManager.recevoirData(APIManager.API_ROUTES_GET_USER_PORTEFEUILLE+User.id.ToString());
+
+                if (recharge.SelectToken("status").ToString() == "SUCCESS")
+                {
+                    string nouvelleDonnees = recharge.SelectToken("result").ToString();
+                    rechargerPortefeuille(nouvelleDonnees);
+                }
+                else
+                {
+                    MessageBox.Show(recharge.SelectToken("message").ToString());
+                }
+
+            } 
+            
             MessageBox.Show(reponse.SelectToken("message").ToString());
+           
+           
         }
 
         private async void btnAchat_Click(object sender, EventArgs e)
@@ -165,6 +203,21 @@ namespace LLWS.UserInterface.Operations
             };
 
             JToken reponse = await APIManager.posterData(route, donnees);
+            if (reponse.SelectToken("status").ToString() == "SUCCESS")
+            {
+                User.budget = (double)reponse.SelectToken("budgetFinal");
+                JToken recharge = await APIManager.recevoirData(APIManager.API_ROUTES_GET_USER_PORTEFEUILLE + User.id.ToString());
+
+                if (recharge.SelectToken("status").ToString() == "SUCCESS")
+                {
+                    string nouvelleDonnees = recharge.SelectToken("result").ToString();
+                    rechargerPortefeuille(nouvelleDonnees);
+                }
+                else
+                {
+                    MessageBox.Show(recharge.SelectToken("message").ToString());
+                }
+            }
             MessageBox.Show(reponse.SelectToken("message").ToString());
         }
 

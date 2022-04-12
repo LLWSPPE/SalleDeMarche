@@ -66,7 +66,7 @@ namespace LLWS.UserInterface.Operations
             this.dtgMonPortefeuille.Name = "dtgMonPortefeuille";
             this.dtgMonPortefeuille.RowHeadersWidth = 51;
             this.dtgMonPortefeuille.RowTemplate.Height = 24;
-            this.dtgMonPortefeuille.Size = new System.Drawing.Size(640, 402);
+            this.dtgMonPortefeuille.Size = new System.Drawing.Size(548, 402);
             this.dtgMonPortefeuille.TabIndex = 0;
             this.dtgMonPortefeuille.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgMonPortefeuille_CellClick);
             // 
@@ -75,12 +75,12 @@ namespace LLWS.UserInterface.Operations
             this.dtgCotations.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtgCotations.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtgCotations.ColumnHeadersHeight = 29;
-            this.dtgCotations.Location = new System.Drawing.Point(667, 80);
+            this.dtgCotations.Location = new System.Drawing.Point(578, 80);
             this.dtgCotations.Margin = new System.Windows.Forms.Padding(2);
             this.dtgCotations.Name = "dtgCotations";
             this.dtgCotations.RowHeadersWidth = 51;
             this.dtgCotations.RowTemplate.Height = 24;
-            this.dtgCotations.Size = new System.Drawing.Size(940, 402);
+            this.dtgCotations.Size = new System.Drawing.Size(1029, 402);
             this.dtgCotations.TabIndex = 1;
             this.dtgCotations.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgCotations_CellClick);
             // 
@@ -99,7 +99,7 @@ namespace LLWS.UserInterface.Operations
             // 
             this.lblCotationsDuJour.AutoSize = true;
             this.lblCotationsDuJour.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCotationsDuJour.Location = new System.Drawing.Point(662, 35);
+            this.lblCotationsDuJour.Location = new System.Drawing.Point(573, 35);
             this.lblCotationsDuJour.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCotationsDuJour.Name = "lblCotationsDuJour";
             this.lblCotationsDuJour.Size = new System.Drawing.Size(176, 28);
@@ -111,7 +111,7 @@ namespace LLWS.UserInterface.Operations
             this.lblMyBudget.AutoSize = true;
             this.lblMyBudget.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMyBudget.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lblMyBudget.Location = new System.Drawing.Point(468, 35);
+            this.lblMyBudget.Location = new System.Drawing.Point(9, 7);
             this.lblMyBudget.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMyBudget.Name = "lblMyBudget";
             this.lblMyBudget.Size = new System.Drawing.Size(181, 28);
@@ -129,7 +129,7 @@ namespace LLWS.UserInterface.Operations
             this.pnlVendre.Controls.Add(this.nupQuantite);
             this.pnlVendre.Location = new System.Drawing.Point(9, 501);
             this.pnlVendre.Name = "pnlVendre";
-            this.pnlVendre.Size = new System.Drawing.Size(640, 293);
+            this.pnlVendre.Size = new System.Drawing.Size(548, 293);
             this.pnlVendre.TabIndex = 5;
             // 
             // lblValeurActuelle
@@ -137,7 +137,7 @@ namespace LLWS.UserInterface.Operations
             this.lblValeurActuelle.AutoSize = true;
             this.lblValeurActuelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblValeurActuelle.ForeColor = System.Drawing.Color.LimeGreen;
-            this.lblValeurActuelle.Location = new System.Drawing.Point(340, 21);
+            this.lblValeurActuelle.Location = new System.Drawing.Point(311, 21);
             this.lblValeurActuelle.Name = "lblValeurActuelle";
             this.lblValeurActuelle.Size = new System.Drawing.Size(208, 22);
             this.lblValeurActuelle.TabIndex = 6;
@@ -211,9 +211,9 @@ namespace LLWS.UserInterface.Operations
             this.pnlAchat.Controls.Add(this.lblValeur);
             this.pnlAchat.Controls.Add(this.lblSociete2);
             this.pnlAchat.Controls.Add(this.lblAchatAction);
-            this.pnlAchat.Location = new System.Drawing.Point(678, 501);
+            this.pnlAchat.Location = new System.Drawing.Point(578, 501);
             this.pnlAchat.Name = "pnlAchat";
-            this.pnlAchat.Size = new System.Drawing.Size(929, 293);
+            this.pnlAchat.Size = new System.Drawing.Size(1029, 293);
             this.pnlAchat.TabIndex = 6;
             // 
             // btnAchat

@@ -7,6 +7,8 @@ using Flurl;
 using Flurl.Http;
 using System.Net;
 using System.Net.Http;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace LLWS.Core
 {
@@ -47,6 +49,33 @@ namespace LLWS.Core
 
         public static string API_ROUTES_POST_ADDBUDGET = API_BASE_URL + "/responsable/user/addBudget";
         public static string API_ROUTES_POST_EDITUSER = API_BASE_URL + "/responsable/user/edit";
+
+        public static async Task<JToken> posterData(string route, object json)
+        {
+
+            //Les informations sont postéee
+            var responseString = await route
+            .PostUrlEncodedAsync(json)
+            .ReceiveString();
+
+            //On naviague à travers la réponse Json
+            JToken token = JToken.Parse(responseString);
+
+            return token;
+
+        }
+
+        public static async Task<JToken> recevoirData(string route)
+        {
+
+            var responseString = await route
+            .GetStringAsync();
+
+            //On naviague à travers la réponse Json
+            JToken token = JToken.Parse(responseString);
+            return token;
+
+        }
 
     }
 }

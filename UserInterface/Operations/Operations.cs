@@ -51,7 +51,7 @@ namespace LLWS.UserInterface.Operations
             dtgMonPortefeuille.Columns["Valeur actuelle"].DefaultCellStyle.BackColor = Color.LightSeaGreen;
             dtgMonPortefeuille.Columns["Valeur actuelle"].DefaultCellStyle.ForeColor = Color.White;
 
-            dtgCotations.ColumnCount = 10;
+            dtgCotations.ColumnCount = 11;
 
             dtgCotations.Columns[0].Name = "id";
             dtgCotations.Columns[1].Name = "Volume";
@@ -63,6 +63,10 @@ namespace LLWS.UserInterface.Operations
             dtgCotations.Columns[7].Name = "Prix fermeture";
             dtgCotations.Columns[8].Name = "Prix haut";
             dtgCotations.Columns[9].Name = "Prix bas";
+            dtgCotations.Columns[10].Name = "Valeur actuelle";
+
+            dtgCotations.Columns["Valeur actuelle"].DefaultCellStyle.BackColor = Color.LightSeaGreen;
+            dtgCotations.Columns["Valeur actuelle"].DefaultCellStyle.ForeColor = Color.White;
 
             remplirDataGridView();
 
@@ -99,7 +103,8 @@ namespace LLWS.UserInterface.Operations
                     cotation.stock_opening_value.ToString(),
                     cotation.stock_closing_value.ToString(),
                     cotation.stock_highest_value.ToString(),
-                    cotation.stock_lowest_value.ToString()
+                    cotation.stock_lowest_value.ToString(),
+                    cotation.stock_closing_value.ToString()
                );
             }
         }
@@ -134,9 +139,16 @@ namespace LLWS.UserInterface.Operations
             string isinCode = this.selectIsinVendre;
             int quantite = (int)this.nupQuantite.Value;
 
+            string route = APIManager.API_ROUTES_POST_SELL;
+            var donnees = new
+            {
+                userToken = User.userToken,
+                isinCode = isinCode,
+                quantity = quantite
+            };
 
-            string response = await vendreCotation(isinCode, quantite);
-            MessageBox.Show(response);
+            JToken reponse = await APIManager.posterData(route, donnees);
+            MessageBox.Show(reponse.SelectToken("message").ToString());
         }
 
         private async void btnAchat_Click(object sender, EventArgs e)
@@ -144,53 +156,18 @@ namespace LLWS.UserInterface.Operations
             string isinCode = this.selectIsinAchat;
             int quantite = (int)this.nupQuantiteAchat.Value;
 
-
-            string response = await achatCotation(isinCode, quantite);
-            MessageBox.Show(response);
-        }
-
-
-        private static async Task<string> vendreCotation(string isinCode, int quantite)
-        {
-            string response = "";
-
-            var responseString = await APIManager.API_ROUTES_POST_SELL
-            .PostUrlEncodedAsync(new { 
-                userToken = User.userToken,
-                isinCode = isinCode,
-                quantity = quantite
-            })
-            .ReceiveString();
-
-            JToken token = JToken.Parse(responseString);
-
-            response = token.SelectToken("message").ToString();
-
-            return response;
-
-        }
-
-        private static async Task<string> achatCotation(string isinCode, int quantite)
-        {
-            string response = "";
-
-            var responseString = await APIManager.API_ROUTES_POST_BUY
-            .PostUrlEncodedAsync(new
+            string route = APIManager.API_ROUTES_POST_BUY;
+            var donnees = new
             {
                 userToken = User.userToken,
                 isinCode = isinCode,
                 quantity = quantite
-            })
-            .ReceiveString();
+            };
 
-            JToken token = JToken.Parse(responseString);
-
-            response = token.SelectToken("message").ToString();
-
-            return response;
-
+            JToken reponse = await APIManager.posterData(route, donnees);
+            MessageBox.Show(reponse.SelectToken("message").ToString());
         }
 
-     
+
     }
 }

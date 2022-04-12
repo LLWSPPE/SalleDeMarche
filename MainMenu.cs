@@ -49,15 +49,50 @@ namespace LLWS
         //Tant qu'aucune réponse n'a été reçue, le composant de la Form correspondant ne chargera pas.
         private async void btnProducts_Click(object sender, EventArgs e)
         {
-            string response = await GetAllCotations();
-            OpenActiveForm(new UserInterface.Products.Products(response), sender);
+            string route = APIManager.API_ROUTES_GET_ALL_COTATIONS;
+            JToken reponse = await APIManager.recevoirData(route);
+
+            if (reponse.SelectToken("status").ToString() == "SUCCESS")
+            {
+                OpenActiveForm(new Products(reponse.SelectToken("result").ToString()), sender);
+            }
+            else
+            {
+                MessageBox.Show("Une erreur est survenue. Veuillez réessayer.");
+            }
+
         }
 
         private async void btnOperations_Click(object sender, EventArgs e)
         {
-            string reponsePortefeuille = await GetPortefeuille();
-            string reponseCotations = await GetAllCotations();
-            OpenActiveForm(new UserInterface.Operations.Operations(reponsePortefeuille, reponseCotations), sender);
+
+            string reponsePortefeuille = "";
+            string reponseCotations = "";
+
+            string routePortefeuille = APIManager.API_ROUTES_GET_USER_PORTEFEUILLE + User.id.ToString();
+            string routeCotations = APIManager.API_ROUTES_GET_ALL_COTATIONS;
+
+            JToken reponse = await APIManager.recevoirData(routePortefeuille);
+            JToken reponseDeux = await APIManager.recevoirData(routeCotations);
+
+            if (reponse.SelectToken("status").ToString() == "SUCCESS")
+            {
+                reponsePortefeuille = reponse.SelectToken("result").ToString();
+            }
+            else
+            {
+                MessageBox.Show("Une erreur est survenue. Veuillez réessayer.");
+            }
+
+            if (reponseDeux.SelectToken("status").ToString() == "SUCCESS")
+            {
+                reponseCotations = reponseDeux.SelectToken("result").ToString();
+                OpenActiveForm(new UserInterface.Operations.Operations(reponsePortefeuille, reponseCotations), sender);
+            }
+            else
+            {
+                MessageBox.Show("Une erreur est survenue. Veuillez réessayer.");
+            }
         }
 
         private void btnDocuments_Click(object sender, EventArgs e)
@@ -76,8 +111,10 @@ namespace LLWS
 
         private async void btnManageUser_Click(object sender, EventArgs e)
         {
-            string response = await GetListOfUser();
-            OpenActiveForm(new UserInterface.Responsable.ManageUsers(response), sender);
+            string route = APIManager.API_ROUTES_GET_USERS;
+
+            JToken reponse = await APIManager.recevoirData(route);
+            OpenActiveForm(new UserInterface.Responsable.ManageUsers(reponse.SelectToken("result").ToString()), sender);
         }
 
 
@@ -138,89 +175,6 @@ namespace LLWS
         }
 
         #endregion
-
-        #region "Tâches asynchrones"
-        private static async Task<string> GetAllCotations()
-        {
-
-            string response = "";
-
-            var responseString = await APIManager.API_ROUTES_GET_ALL_COTATIONS
-            .GetStringAsync();
-
-            JToken token = JToken.Parse(responseString);
-
-            if (token.SelectToken("status").ToString() == "SUCCESS")
-            {
-
-                response = token.SelectToken("result").ToString();
-
-            }
-            else
-            {
-                MessageBox.Show("Une erreur est survenue. Veuillez réessayer.");
-            }
-
-            return response;
-
-        }
-
-        private static async Task<string> GetPortefeuille()
-        {
-
-            string response = "";
-            string apiRoute = APIManager.API_ROUTES_GET_USER_PORTEFEUILLE + User.id.ToString();
-
-            var responseString = await apiRoute
-            .GetStringAsync();
-
-            JToken token = JToken.Parse(responseString);
-
-            if (token.SelectToken("status").ToString() == "SUCCESS")
-            {
-
-                response = token.SelectToken("portefeuille").ToString();
-
-            }
-            else
-            {
-                MessageBox.Show("Une erreur est survenue. Veuillez réessayer.");
-            }
-
-            return response;
-
-        }
-
-
-
-        private static async Task<string> GetListOfUser()
-        {
-
-            string response = "";
-
-            var responseString = await APIManager.API_ROUTES_GET_USERS
-            .GetStringAsync();
-
-            JToken token = JToken.Parse(responseString);
-
-            if (token.SelectToken("status").ToString() == "SUCCESS")
-            {
-
-                response = token.SelectToken("result").ToString();
-
-            }
-            else
-            {
-                MessageBox.Show("Une erreur est survenue. Veuillez réessayer.");
-            }
-
-            return response;
-
-        }
-
-
-        #endregion
-
        
     }
 }

@@ -25,6 +25,7 @@ namespace LLWS
         public MainMenu()
         {
             InitializeComponent();
+            WindowState = FormWindowState.Maximized;
             this.lblUserBudget.Text = User.budget.ToString() + "€";
 
             //On cache les boutons si l'utilisateur de la session n'est pas un admin / responsable

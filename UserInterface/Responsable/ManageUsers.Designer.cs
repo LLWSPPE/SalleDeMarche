@@ -31,6 +31,7 @@ namespace LLWS.UserInterface.Responsable
         {
             this.label1 = new System.Windows.Forms.Label();
             this.dtgUsers = new System.Windows.Forms.DataGridView();
+            this.lblGestionUtilisateur = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgUsers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,29 +46,39 @@ namespace LLWS.UserInterface.Responsable
             // 
             // dtgUsers
             // 
-            this.dtgUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtgUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgUsers.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.dtgUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgUsers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgUsers.Location = new System.Drawing.Point(0, 0);
-            this.dtgUsers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtgUsers.Location = new System.Drawing.Point(97, 87);
+            this.dtgUsers.Margin = new System.Windows.Forms.Padding(2);
             this.dtgUsers.Name = "dtgUsers";
             this.dtgUsers.RowHeadersWidth = 51;
             this.dtgUsers.RowTemplate.Height = 24;
-            this.dtgUsers.Size = new System.Drawing.Size(1042, 584);
+            this.dtgUsers.Size = new System.Drawing.Size(983, 536);
             this.dtgUsers.TabIndex = 1;
             this.dtgUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgUsers_CellContentClick);
+            // 
+            // lblGestionUtilisateur
+            // 
+            this.lblGestionUtilisateur.AutoSize = true;
+            this.lblGestionUtilisateur.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGestionUtilisateur.Location = new System.Drawing.Point(410, 43);
+            this.lblGestionUtilisateur.Name = "lblGestionUtilisateur";
+            this.lblGestionUtilisateur.Size = new System.Drawing.Size(372, 28);
+            this.lblGestionUtilisateur.TabIndex = 2;
+            this.lblGestionUtilisateur.Text = "Responsable - Gestion des utilisateurs";
             // 
             // ManageUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1042, 584);
+            this.ClientSize = new System.Drawing.Size(1154, 653);
+            this.Controls.Add(this.lblGestionUtilisateur);
             this.Controls.Add(this.dtgUsers);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ManageUsers";
-            this.Text = "ManageUsers";
+            this.Text = "Gestion des utilisateurs";
             ((System.ComponentModel.ISupportInitialize)(this.dtgUsers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -78,5 +89,6 @@ namespace LLWS.UserInterface.Responsable
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dtgUsers;
+        private System.Windows.Forms.Label lblGestionUtilisateur;
     }
 }

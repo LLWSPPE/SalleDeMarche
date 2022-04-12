@@ -29,6 +29,7 @@ namespace LLWS
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.pnlLogin = new System.Windows.Forms.Panel();
             this.btnRegister = new System.Windows.Forms.Button();
             this.lblLoginTitle = new System.Windows.Forms.Label();
@@ -48,8 +49,9 @@ namespace LLWS
             this.pnlLogin.Controls.Add(this.txbMail);
             this.pnlLogin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlLogin.Location = new System.Drawing.Point(0, 0);
+            this.pnlLogin.Margin = new System.Windows.Forms.Padding(2);
             this.pnlLogin.Name = "pnlLogin";
-            this.pnlLogin.Size = new System.Drawing.Size(809, 415);
+            this.pnlLogin.Size = new System.Drawing.Size(607, 337);
             this.pnlLogin.TabIndex = 0;
             // 
             // btnRegister
@@ -59,9 +61,10 @@ namespace LLWS
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegister.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegister.ForeColor = System.Drawing.Color.White;
-            this.btnRegister.Location = new System.Drawing.Point(222, 247);
+            this.btnRegister.Location = new System.Drawing.Point(166, 201);
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(2);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(160, 40);
+            this.btnRegister.Size = new System.Drawing.Size(120, 32);
             this.btnRegister.TabIndex = 4;
             this.btnRegister.Text = "Inscription";
             this.btnRegister.UseVisualStyleBackColor = false;
@@ -72,9 +75,10 @@ namespace LLWS
             this.lblLoginTitle.AutoSize = true;
             this.lblLoginTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLoginTitle.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblLoginTitle.Location = new System.Drawing.Point(330, 93);
+            this.lblLoginTitle.Location = new System.Drawing.Point(248, 76);
+            this.lblLoginTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLoginTitle.Name = "lblLoginTitle";
-            this.lblLoginTitle.Size = new System.Drawing.Size(142, 29);
+            this.lblLoginTitle.Size = new System.Drawing.Size(116, 25);
             this.lblLoginTitle.TabIndex = 3;
             this.lblLoginTitle.Text = "Connexion";
             // 
@@ -85,10 +89,11 @@ namespace LLWS
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(407, 247);
-            this.btnLogin.MaximumSize = new System.Drawing.Size(160, 40);
+            this.btnLogin.Location = new System.Drawing.Point(305, 201);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLogin.MaximumSize = new System.Drawing.Size(120, 32);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(160, 40);
+            this.btnLogin.Size = new System.Drawing.Size(120, 32);
             this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Connexion";
             this.btnLogin.UseVisualStyleBackColor = false;
@@ -97,9 +102,10 @@ namespace LLWS
             // txbPassword
             // 
             this.txbPassword.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbPassword.Location = new System.Drawing.Point(222, 186);
+            this.txbPassword.Location = new System.Drawing.Point(166, 151);
+            this.txbPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txbPassword.Name = "txbPassword";
-            this.txbPassword.Size = new System.Drawing.Size(345, 29);
+            this.txbPassword.Size = new System.Drawing.Size(260, 25);
             this.txbPassword.TabIndex = 1;
             this.txbPassword.Text = "Mot de passe";
             this.txbPassword.Enter += new System.EventHandler(this.txbPassword_Enter);
@@ -108,9 +114,10 @@ namespace LLWS
             // txbMail
             // 
             this.txbMail.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbMail.Location = new System.Drawing.Point(222, 139);
+            this.txbMail.Location = new System.Drawing.Point(166, 113);
+            this.txbMail.Margin = new System.Windows.Forms.Padding(2);
             this.txbMail.Name = "txbMail";
-            this.txbMail.Size = new System.Drawing.Size(345, 29);
+            this.txbMail.Size = new System.Drawing.Size(260, 25);
             this.txbMail.TabIndex = 0;
             this.txbMail.Text = "Adresse mail";
             this.txbMail.Enter += new System.EventHandler(this.txbMail_Enter);
@@ -118,15 +125,17 @@ namespace LLWS
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(809, 415);
+            this.ClientSize = new System.Drawing.Size(607, 337);
             this.Controls.Add(this.pnlLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Login";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.pnlLogin.ResumeLayout(false);
             this.pnlLogin.PerformLayout();

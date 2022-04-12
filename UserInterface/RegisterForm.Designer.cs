@@ -29,6 +29,7 @@ namespace LLWS.UserInterface
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterForm));
             this.lblnscription = new System.Windows.Forms.Label();
             this.txbFirstName = new System.Windows.Forms.TextBox();
             this.txbLastName = new System.Windows.Forms.TextBox();
@@ -162,6 +163,7 @@ namespace LLWS.UserInterface
             this.Controls.Add(this.txbLastName);
             this.Controls.Add(this.txbFirstName);
             this.Controls.Add(this.lblnscription);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RegisterForm";
             this.Text = "RegisterForm";
             this.ResumeLayout(false);

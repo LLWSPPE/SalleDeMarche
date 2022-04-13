@@ -125,26 +125,34 @@ namespace LLWS.UserInterface.Operations
         private void dtgMonPortefeuille_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            this.selectIsinVendre = dtgMonPortefeuille.Rows[e.RowIndex].Cells[1].Value.ToString();
+            if (dtgMonPortefeuille.CurrentCell == null ||dtgMonPortefeuille.CurrentCell.Value == null || e.RowIndex == -1) return;
+            else
+            {
+                this.selectIsinVendre = dtgMonPortefeuille.Rows[e.RowIndex].Cells[1].Value.ToString();
 
-            this.lblValeurActuelle.Text = "Valeur du titre : "+dtgMonPortefeuille.Rows[e.RowIndex].Cells[4].Value.ToString()+ " €";
-            this.pnlVendre.Visible = true;
-            this.lblSociete.Text = "Société : " + dtgMonPortefeuille.Rows[e.RowIndex].Cells[2].Value.ToString();
-            this.lblNombrePossede.Text = "Nombre de titre possédés : " + dtgMonPortefeuille.Rows[e.RowIndex].Cells[3].Value.ToString();
-            this.nupQuantite.Maximum = Int32.Parse(dtgMonPortefeuille.Rows[e.RowIndex].Cells[3].Value.ToString());
-            this.nupQuantite.Minimum = 0;
-            this.nupQuantite.DecimalPlaces = 0;
+                this.lblValeurActuelle.Text = "Valeur du titre : " + dtgMonPortefeuille.Rows[e.RowIndex].Cells[4].Value.ToString() + " €";
+                this.pnlVendre.Visible = true;
+                this.lblSociete.Text = "Société : " + dtgMonPortefeuille.Rows[e.RowIndex].Cells[2].Value.ToString();
+                this.lblNombrePossede.Text = "Nombre de titre possédés : " + dtgMonPortefeuille.Rows[e.RowIndex].Cells[3].Value.ToString();
+                this.nupQuantite.Maximum = Int32.Parse(dtgMonPortefeuille.Rows[e.RowIndex].Cells[3].Value.ToString());
+                this.nupQuantite.Minimum = 0;
+                this.nupQuantite.DecimalPlaces = 0;
+            }
         }
 
         private void dtgCotations_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            this.selectIsinAchat = dtgCotations.Rows[e.RowIndex].Cells[4].Value.ToString();
+            if (dtgCotations.CurrentCell == null || dtgCotations.CurrentCell.Value == null || e.RowIndex == -1) return;
+            else
+            {
+                this.selectIsinAchat = dtgCotations.Rows[e.RowIndex].Cells[4].Value.ToString();
 
-            this.pnlAchat.Visible = true;
-            this.lblSociete2.Text = "Société : " + dtgCotations.Rows[e.RowIndex].Cells[2].Value.ToString() + " ["+ dtgCotations.Rows[e.RowIndex].Cells[3].Value.ToString()+"]";
-            this.lblValeur.Text = "Valeur d'un titre : " + dtgCotations.Rows[e.RowIndex].Cells[7].Value.ToString() + "€";
-            this.nupQuantiteAchat.Minimum = 0;
-            this.nupQuantiteAchat.DecimalPlaces = 0;
+                this.pnlAchat.Visible = true;
+                this.lblSociete2.Text = "Société : " + dtgCotations.Rows[e.RowIndex].Cells[2].Value.ToString() + " [" + dtgCotations.Rows[e.RowIndex].Cells[3].Value.ToString() + "]";
+                this.lblValeur.Text = "Valeur d'un titre : " + dtgCotations.Rows[e.RowIndex].Cells[7].Value.ToString() + "€";
+                this.nupQuantiteAchat.Minimum = 0;
+                this.nupQuantiteAchat.DecimalPlaces = 0;
+            }
         }
 
         private async void btnVendreAction_Click(object sender, EventArgs e)

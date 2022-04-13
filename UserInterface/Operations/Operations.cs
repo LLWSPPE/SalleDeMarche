@@ -19,16 +19,14 @@ namespace LLWS.UserInterface.Operations
     public partial class Operations : Form
     {
         public string reponsePortefeuille;
-        public string reponseCotations;
         public string selectIsinVendre;
         public string selectIsinAchat;
         public int actuelQuantite;
 
-        public Operations(string reponsePortefeuille, string reponseCotations)
+        public Operations(string reponsePortefeuille)
         {
             InitializeComponent();
             this.reponsePortefeuille = reponsePortefeuille;
-            this.reponseCotations = reponseCotations;
             chargerInterface();
         }
 
@@ -36,7 +34,7 @@ namespace LLWS.UserInterface.Operations
         private void chargerInterface()
         {
 
-            this.lblMyBudget.Text = "Mon budget : " + User.budget.ToString();
+            this.lblMyBudget.Text = "Mon budget : " + User.budget.ToString() + "€";
             this.pnlVendre.Visible = false;
             this.pnlAchat.Visible = false;
 
@@ -71,7 +69,7 @@ namespace LLWS.UserInterface.Operations
             dtgCotations.Columns["Valeur actuelle"].DefaultCellStyle.ForeColor = Color.White;
 
             remplirDtgPortefeuille(this.reponsePortefeuille);
-            remplirDtgCotations(this.reponseCotations);
+            remplirDtgCotations();
 
         }
 
@@ -95,12 +93,9 @@ namespace LLWS.UserInterface.Operations
             }
         }
 
-        private void remplirDtgCotations(string donneesCotations) { 
-            var listActionsJour = JsonConvert.DeserializeObject<List<Cotation>>(donneesCotations);
+        private void remplirDtgCotations() { 
 
-            if(listActionsJour != null)
-            {
-                foreach (Cotation cotation in listActionsJour)
+                foreach (Cotation cotation in CotationsDuJour.ListeCotation)
                 {
 
                     dtgCotations.Rows.Add(
@@ -117,7 +112,7 @@ namespace LLWS.UserInterface.Operations
                         cotation.stock_closing_value.ToString()
                    );
                 }
-            }
+            
         }
 
         private void rechargerPortefeuille(string nouvelleDonnees)

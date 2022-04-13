@@ -14,6 +14,7 @@ using Flurl.Http;
 using Newtonsoft.Json.Linq;
 using LLWS.Models;
 using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace LLWS
 {
@@ -56,10 +57,23 @@ namespace LLWS
                 User.budget = (double)reponse.SelectToken("result[0].budget");
                 User.admin = (int)reponse.SelectToken("result[0].admin");
 
-                this.Hide();
-                //On affiche la fenêtre principale.
-                MainMenu mainMenu = new MainMenu();
-                mainMenu.Show();
+                JToken reponseCotations = await APIManager.recevoirData(APIManager.API_ROUTES_GET_ALL_COTATIONS);
+
+                if(reponseCotations.SelectToken("status").ToString() == "ERROR")
+                {
+                    MessageBox.Show("Il y a eu une erreur pour récupérer les cotations du jour.");
+                }
+
+                else
+                {
+                    var cotationsDeserialisees = JsonConvert.DeserializeObject<List<Cotation>>(reponseCotations.SelectToken("result").ToString());
+                    this.Hide();
+                    CotationsDuJour.ListeCotation = cotationsDeserialisees;
+                    MainMenu mainMenu = new MainMenu();
+                    mainMenu.Show();
+                }
+
+
             }
   
         }
@@ -78,12 +92,12 @@ namespace LLWS
 
         private void txbPassword_Leave(object sender, EventArgs e)
         {
-            if (txbPassword.Text == "") txbPassword.Text = "mot de passe";
+            if (txbPassword.Text == "") txbPassword.Text = "Mot de passe";
         }
 
         private void txbMail_Leave(object sender, EventArgs e)
         {
-            if (txbMail.Text == "") txbMail.Text = "adresse mail";
+            if (txbMail.Text == "") txbMail.Text = "Adresse mail";
         }
 
         private void txbMail_Enter(object sender, EventArgs e)

@@ -141,6 +141,7 @@
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Cotation.cs" />
+    <Compile Include="Models\CotationsDuJour.cs" />
     <Compile Include="Models\Portefeuille.cs" />
     <Compile Include="Models\Trader.cs" />
     <Compile Include="Models\User.cs" />

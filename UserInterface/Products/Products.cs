@@ -17,11 +17,10 @@ namespace LLWS.UserInterface.Products
 {
     public partial class Products : Form
     {
-        public string response;
-        public Products(string response)
+
+        public Products()
         {
             InitializeComponent();
-            this.response = response;
             setUpDataGridView();
             this.Text = "Cotations du jour";
 
@@ -37,6 +36,8 @@ namespace LLWS.UserInterface.Products
             dtgCotations.Size = new Size(this.Size.Width - 10, this.Size.Height - 30);
 
             dtgCotations.ColumnCount = 10;
+            dtgCotations.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+
 
             dtgCotations.Columns[0].Name = "id";
             dtgCotations.Columns[1].Name = "Volume";
@@ -61,9 +62,8 @@ namespace LLWS.UserInterface.Products
          */
         private void remplirDataGridView()
         {
-            var model = JsonConvert.DeserializeObject<List<Cotation>>(this.response);
 
-            foreach (Cotation cotation in model)
+            foreach (Cotation cotation in CotationsDuJour.ListeCotation)
             {
 
                 dtgCotations.Rows.Add(

@@ -9,6 +9,7 @@ using System.Net;
 using System.Net.Http;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using LLWS.Models;
 
 namespace LLWS.Core
 {
@@ -36,6 +37,8 @@ namespace LLWS.Core
         public static string API_ROUTES_GET_USER_PORTEFEUILLE = API_BASE_URL + "/users/portefeuille/";
         public static string API_ROUTES_POST_SELL = API_BASE_URL + "/cotations/sell";
         public static string API_ROUTES_POST_BUY = API_BASE_URL + "/cotations/buy";
+        public static string API_ROUTES_GET_MOUVEMENT_BUY = API_BASE_URL + "/users/" + User.id.ToString() + "/mouvements/1";
+        public static string API_ROUTES_GET_MOUVEMENT_SELL = API_BASE_URL + "/users/" + User.id.ToString() + "/mouvements/2";
 
         //Admin & responsable
         public static string API_ROUTES_GET_USERS = API_BASE_URL + "/admin/users";

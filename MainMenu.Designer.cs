@@ -31,6 +31,7 @@ namespace LLWS
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.pnlSidebar = new System.Windows.Forms.Panel();
+            this.lblMenuAdmin = new System.Windows.Forms.Label();
             this.btnMesMouvements = new System.Windows.Forms.Button();
             this.btnManageUser = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -43,7 +44,6 @@ namespace LLWS
             this.panelWindowTitle = new System.Windows.Forms.Panel();
             this.labelWindowTitle = new System.Windows.Forms.Label();
             this.panelMainWindow = new System.Windows.Forms.Panel();
-            this.lblMenuAdmin = new System.Windows.Forms.Label();
             this.pnlSidebar.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelWindowTitle.SuspendLayout();
@@ -65,6 +65,20 @@ namespace LLWS
             this.pnlSidebar.Name = "pnlSidebar";
             this.pnlSidebar.Size = new System.Drawing.Size(263, 1035);
             this.pnlSidebar.TabIndex = 0;
+            // 
+            // lblMenuAdmin
+            // 
+            this.lblMenuAdmin.AutoSize = true;
+            this.lblMenuAdmin.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblMenuAdmin.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMenuAdmin.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblMenuAdmin.Location = new System.Drawing.Point(0, 777);
+            this.lblMenuAdmin.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
+            this.lblMenuAdmin.Name = "lblMenuAdmin";
+            this.lblMenuAdmin.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.lblMenuAdmin.Size = new System.Drawing.Size(127, 20);
+            this.lblMenuAdmin.TabIndex = 9;
+            this.lblMenuAdmin.Text = "Administration";
             // 
             // btnMesMouvements
             // 
@@ -126,7 +140,7 @@ namespace LLWS
             this.lblUserBudget.Location = new System.Drawing.Point(8, 47);
             this.lblUserBudget.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserBudget.Name = "lblUserBudget";
-            this.lblUserBudget.Size = new System.Drawing.Size(59, 23);
+            this.lblUserBudget.Size = new System.Drawing.Size(50, 19);
             this.lblUserBudget.TabIndex = 8;
             this.lblUserBudget.Text = "label1";
             // 
@@ -138,7 +152,7 @@ namespace LLWS
             this.lblMyBudget.Location = new System.Drawing.Point(4, 11);
             this.lblMyBudget.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMyBudget.Name = "lblMyBudget";
-            this.lblMyBudget.Size = new System.Drawing.Size(105, 23);
+            this.lblMyBudget.Size = new System.Drawing.Size(86, 19);
             this.lblMyBudget.TabIndex = 7;
             this.lblMyBudget.Text = "Mon budget";
             // 
@@ -233,7 +247,7 @@ namespace LLWS
             this.labelWindowTitle.Location = new System.Drawing.Point(769, 25);
             this.labelWindowTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelWindowTitle.Name = "labelWindowTitle";
-            this.labelWindowTitle.Size = new System.Drawing.Size(0, 37);
+            this.labelWindowTitle.Size = new System.Drawing.Size(0, 30);
             this.labelWindowTitle.TabIndex = 0;
             // 
             // panelMainWindow
@@ -245,20 +259,6 @@ namespace LLWS
             this.panelMainWindow.Name = "panelMainWindow";
             this.panelMainWindow.Size = new System.Drawing.Size(1661, 953);
             this.panelMainWindow.TabIndex = 2;
-            // 
-            // lblMenuAdmin
-            // 
-            this.lblMenuAdmin.AutoSize = true;
-            this.lblMenuAdmin.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblMenuAdmin.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMenuAdmin.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblMenuAdmin.Location = new System.Drawing.Point(0, 772);
-            this.lblMenuAdmin.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
-            this.lblMenuAdmin.Name = "lblMenuAdmin";
-            this.lblMenuAdmin.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.lblMenuAdmin.Size = new System.Drawing.Size(156, 25);
-            this.lblMenuAdmin.TabIndex = 9;
-            this.lblMenuAdmin.Text = "Administration";
             // 
             // MainMenu
             // 

@@ -56,6 +56,7 @@ namespace LLWS
                 User.userToken = (string)reponse.SelectToken("result[0].loginToken"); ;
                 User.budget = (double)reponse.SelectToken("result[0].budget");
                 User.admin = (int)reponse.SelectToken("result[0].admin");
+                User.responsable = (int)reponse.SelectToken("result[0].responsable");
 
                 JToken reponseCotations = await APIManager.recevoirData(APIManager.API_ROUTES_GET_ALL_COTATIONS);
 

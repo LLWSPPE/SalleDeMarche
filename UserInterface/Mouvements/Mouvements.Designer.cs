@@ -47,7 +47,7 @@ namespace LLWS.UserInterface.Mouvements
             this.lblMouvements.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMouvements.Location = new System.Drawing.Point(766, 69);
             this.lblMouvements.Name = "lblMouvements";
-            this.lblMouvements.Size = new System.Drawing.Size(419, 45);
+            this.lblMouvements.Size = new System.Drawing.Size(350, 37);
             this.lblMouvements.TabIndex = 0;
             this.lblMouvements.Text = "Historique des opérations";
             // 
@@ -65,7 +65,7 @@ namespace LLWS.UserInterface.Mouvements
             this.dtgAchats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.Moccasin;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gold;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -84,7 +84,7 @@ namespace LLWS.UserInterface.Mouvements
             this.dtgVentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.PaleGreen;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LimeGreen;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -103,7 +103,7 @@ namespace LLWS.UserInterface.Mouvements
             this.lblAchats.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAchats.Location = new System.Drawing.Point(18, 202);
             this.lblAchats.Name = "lblAchats";
-            this.lblAchats.Size = new System.Drawing.Size(94, 35);
+            this.lblAchats.Size = new System.Drawing.Size(76, 28);
             this.lblAchats.TabIndex = 3;
             this.lblAchats.Text = "Achats";
             // 
@@ -113,7 +113,7 @@ namespace LLWS.UserInterface.Mouvements
             this.lblVentes.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVentes.Location = new System.Drawing.Point(1015, 202);
             this.lblVentes.Name = "lblVentes";
-            this.lblVentes.Size = new System.Drawing.Size(94, 35);
+            this.lblVentes.Size = new System.Drawing.Size(75, 28);
             this.lblVentes.TabIndex = 4;
             this.lblVentes.Text = "Ventes";
             // 
@@ -121,7 +121,7 @@ namespace LLWS.UserInterface.Mouvements
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1991, 1063);
+            this.ClientSize = new System.Drawing.Size(1924, 1061);
             this.Controls.Add(this.lblVentes);
             this.Controls.Add(this.lblAchats);
             this.Controls.Add(this.dtgVentes);

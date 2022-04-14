@@ -94,17 +94,34 @@ namespace LLWS.UserInterface.Responsable
             {
                 int userId = Int32.Parse(dtgUsers.Rows[e.RowIndex].Cells[0].Value.ToString());
                 string route = APIManager.API_ROUTES_GET_SPECIFIC_USER + userId.ToString();
+                string routeUtilisateurMouvement = APIManager.API_BASE_URL + "/users/" + userId.ToString() + "/mouvements/";
 
-                //On récupère la valeur (int = id) puis on la passe en paramètre pour récupérer un utilisateur via l'API via GetUser()
                 JToken reponse = await APIManager.recevoirData(route);
 
                 //On désérialise le json en Trader
                 Trader traderToManage = JsonConvert.DeserializeObject<Trader>(reponse.SelectToken("result[0]").ToString());
 
-                //On ouvre une nouvelle fenêtre ManagerUserWindow en passant le trader en paramètre.
-                //Cette fenêtre sera dédiée à l'instance de cet utilisateur.
-                ManageUserWindows gererUser = new ManageUserWindows(traderToManage);
-                gererUser.Show();
+                if(reponse.SelectToken("status").ToString() == "SUCCESS")
+                {
+
+                    JToken reponseMouvements = await APIManager.recevoirData(routeUtilisateurMouvement);
+                    if (reponseMouvements.SelectToken("status").ToString() == "SUCCESS")
+                    {
+                        string mouvementsString = reponseMouvements.SelectToken("mouvements").ToString();
+                        ManageUserWindows gererUser = new ManageUserWindows(traderToManage, mouvementsString);
+                        gererUser.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Il y a eu une erreur lors de la récupération des opérations de cet utilisateur.");
+                    }
+
+                        
+                } else
+                {
+                    MessageBox.Show("Il y a eu une erreur lors de la récupération des informations de cet utilisateur.");
+                }
+              
 
              }
 

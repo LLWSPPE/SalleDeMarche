@@ -29,6 +29,7 @@ namespace LLWS.UserInterface.Products
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Products));
             this.dtgCotations = new System.Windows.Forms.DataGridView();
             this.lblProduct = new System.Windows.Forms.Label();
@@ -41,20 +42,27 @@ namespace LLWS.UserInterface.Products
             // 
             this.dtgCotations.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgCotations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgCotations.Location = new System.Drawing.Point(9, 162);
-            this.dtgCotations.Margin = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgCotations.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dtgCotations.Location = new System.Drawing.Point(12, 199);
+            this.dtgCotations.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtgCotations.Name = "dtgCotations";
             this.dtgCotations.RowHeadersWidth = 51;
             this.dtgCotations.RowTemplate.Height = 24;
-            this.dtgCotations.Size = new System.Drawing.Size(1034, 363);
+            this.dtgCotations.Size = new System.Drawing.Size(1379, 447);
             this.dtgCotations.TabIndex = 0;
             // 
             // lblProduct
             // 
             this.lblProduct.AutoSize = true;
             this.lblProduct.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProduct.Location = new System.Drawing.Point(14, 123);
-            this.lblProduct.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblProduct.Location = new System.Drawing.Point(19, 151);
             this.lblProduct.Name = "lblProduct";
             this.lblProduct.Size = new System.Drawing.Size(176, 28);
             this.lblProduct.TabIndex = 1;
@@ -64,7 +72,8 @@ namespace LLWS.UserInterface.Products
             // 
             this.lblBonjour.AutoSize = true;
             this.lblBonjour.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBonjour.Location = new System.Drawing.Point(12, 24);
+            this.lblBonjour.Location = new System.Drawing.Point(16, 30);
+            this.lblBonjour.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBonjour.Name = "lblBonjour";
             this.lblBonjour.Size = new System.Drawing.Size(359, 37);
             this.lblBonjour.TabIndex = 2;
@@ -74,7 +83,8 @@ namespace LLWS.UserInterface.Products
             // 
             this.lblSubBonjour.AutoSize = true;
             this.lblSubBonjour.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubBonjour.Location = new System.Drawing.Point(16, 74);
+            this.lblSubBonjour.Location = new System.Drawing.Point(21, 91);
+            this.lblSubBonjour.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSubBonjour.Name = "lblSubBonjour";
             this.lblSubBonjour.Size = new System.Drawing.Size(824, 34);
             this.lblSubBonjour.TabIndex = 3;
@@ -82,14 +92,14 @@ namespace LLWS.UserInterface.Products
             // 
             // Products
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1054, 592);
+            this.ClientSize = new System.Drawing.Size(1405, 729);
             this.Controls.Add(this.lblSubBonjour);
             this.Controls.Add(this.lblBonjour);
             this.Controls.Add(this.lblProduct);
             this.Controls.Add(this.dtgCotations);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Products";
             this.Text = "Products";
             ((System.ComponentModel.ISupportInitialize)(this.dtgCotations)).EndInit();

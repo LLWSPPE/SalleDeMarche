@@ -21,10 +21,13 @@ namespace LLWS.UserInterface.Responsable
         private string response { get; set; }
         private Trader trader { get; set; }
 
-        public ManageUserWindows(Trader trader)
+        private string mouvements { get; set; }
+
+        public ManageUserWindows(Trader trader, string mouvements)
         {
             InitializeComponent();
             this.trader = trader;
+            this.mouvements = mouvements;
             setUpComposants();
             this.Text = "Gestion de l'utilisateur "+trader.first_name+" "+trader.last_name+" ("+trader.id+")";
         }
@@ -59,6 +62,48 @@ namespace LLWS.UserInterface.Responsable
             this.txbFirstName.Text = this.trader.first_name;
             this.txbLastName.Text = this.trader.last_name;
             this.txbEmail.Text = this.trader.email;
+
+            dtgMouvements.ColumnCount = 5;
+
+            dtgMouvements.Columns[0].Name = "Type";
+            dtgMouvements.Columns[1].Name = "Code ISIN";
+            dtgMouvements.Columns[2].Name = "Quantité";
+            dtgMouvements.Columns[3].Name = "Date";
+            dtgMouvements.Columns[4].Name = "Montant";
+
+            remplirDataGridView();
+
+        }
+
+        private void remplirDataGridView()
+        {
+            var listeMouvements = JsonConvert.DeserializeObject<List<Mouvement>>(this.mouvements);
+            if(listeMouvements != null)
+            {
+                listeMouvements.Reverse();
+                foreach(Mouvement mouvement in listeMouvements)
+                {
+                    dtgMouvements.Rows.Add(
+                        mouvement.type_mouvement.ToString(),
+                        mouvement.isin_code.ToString(),
+                        mouvement.quantite.ToString(),
+                        mouvement.date_mouvement.ToString(),
+                        mouvement.montant.ToString()
+                        );
+                }
+
+                for(int i = 0; i < dtgMouvements.Rows.Count - 1; i++)
+                {
+                    if(dtgMouvements.Rows[i].Cells[0].Value.ToString() == "SELL")
+                    {
+                        dtgMouvements.Rows[i].DefaultCellStyle.BackColor = Color.LimeGreen;
+                    }
+                    else
+                    {
+                        dtgMouvements.Rows[i].DefaultCellStyle.BackColor = Color.Gold;
+                    }
+                }
+            }
         }
         #endregion
 

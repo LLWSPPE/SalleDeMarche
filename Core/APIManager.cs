@@ -32,6 +32,7 @@ namespace LLWS.Core
 
         //Cotations
         public static string API_ROUTES_GET_ALL_COTATIONS = API_BASE_URL + "/cotations/get";
+        public static string API_ROUTES_GET_HISTORIQUE = API_BASE_URL + "/cotations/historique/";
 
         //Utilisateur
         public static string API_ROUTES_GET_USER_PORTEFEUILLE = API_BASE_URL + "/users/portefeuille/";

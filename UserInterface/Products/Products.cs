@@ -12,6 +12,7 @@ using Flurl.Http;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using LLWS.Models;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace LLWS.UserInterface.Products
 {
@@ -30,10 +31,9 @@ namespace LLWS.UserInterface.Products
         private void setUpDataGridView()
         {
 
-           
+
 
             //Initialisation du DataGridView
-            dtgCotations.Size = new Size(this.Size.Width - 10, this.Size.Height - 30);
 
             dtgCotations.ColumnCount = 10;
             dtgCotations.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -49,6 +49,18 @@ namespace LLWS.UserInterface.Products
             dtgCotations.Columns[7].Name = "Prix fermeture";
             dtgCotations.Columns[8].Name = "Prix haut";
             dtgCotations.Columns[9].Name = "Prix bas";
+
+            DataGridViewButtonColumn colonneButton = new DataGridViewButtonColumn();
+            colonneButton.HeaderText = "Historique";
+            colonneButton.Text = "Historique";
+            colonneButton.Name = "btnHistorique";
+            colonneButton.UseColumnTextForButtonValue = true;
+            dtgCotations.Columns.Add(colonneButton);
+
+            dtgHistorique.ColumnCount = 2;
+
+            dtgHistorique.Columns[0].Name = "Date";
+            dtgHistorique.Columns[1].Name = "Valeur";
 
             //Appel de la fonction de remplissage du Dtg
             remplirDataGridView();
@@ -79,8 +91,66 @@ namespace LLWS.UserInterface.Products
                     cotation.stock_lowest_value.ToString()
                );
             }
+
+
         }
         #endregion
 
+        private async void dtgCotations_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 10)
+            {
+
+
+                string isinCode = dtgCotations.Rows[e.RowIndex].Cells[4].Value.ToString();
+                string route = APIManager.API_ROUTES_GET_HISTORIQUE + isinCode;
+
+                JToken reponse = await APIManager.recevoirData(route);
+                if (reponse.SelectToken("status").ToString() == "SUCCESS")
+                {
+                    dtgHistorique.Rows.Clear();
+                    var historiqueCotation = JsonConvert.DeserializeObject<List<Cotation>>(reponse.SelectToken("result").ToString());
+                    foreach (Cotation cotation in historiqueCotation)
+                    {
+                        dtgHistorique.Rows.Add(
+                            cotation.stock_date.ToString(),
+                            cotation.stock_closing_value.ToString()
+                            );
+                    }
+
+                    var maxValeur = dtgHistorique.Rows.Cast<DataGridViewRow>().Max(r => Convert.ToDouble(r.Cells["Valeur"].Value));
+                    var minValeur = dtgHistorique.Rows.Cast<DataGridViewRow>().Min(t => Convert.ToDouble(t.Cells["Valeur"].Value));
+
+                    MessageBox.Show(minValeur.ToString() + maxValeur.ToString());
+
+
+                    var zoneHistorique = chrtHistorique.ChartAreas[0];
+                    zoneHistorique.AxisX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Days;
+                    zoneHistorique.AxisY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+                    //Date
+
+                    DateTime minDate = Convert.ToDateTime(dtgHistorique.Rows[0].Cells["Date"].Value.ToString());
+                    DateTime maxDate = Convert.ToDateTime(dtgHistorique.Rows[dtgHistorique.Rows.Count-1].Cells["Date"].Value.ToString());
+                    double minimumDate = minDate.ToOADate();
+                    double maximumDate = maxDate.ToOADate();
+
+                    zoneHistorique.AxisX.Minimum = minimumDate;
+                    zoneHistorique.AxisX.Maximum = maximumDate;
+
+                    //Prix
+                    zoneHistorique.AxisY.Minimum = minValeur;
+                    zoneHistorique.AxisY.Maximum = maxValeur;
+
+                    //loop rows to draw multi line chart c#
+                    foreach (Cotation cotation in historiqueCotation)
+                    {
+                        chrtHistorique.Series["Series1"].Points.AddXY(cotation.stock_date, cotation.stock_closing_value);
+                    }
+
+
+                }
+
+            }
+        }    
     }
 }

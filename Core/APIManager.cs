@@ -10,18 +10,18 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using LLWS.Models;
+using System.Configuration;
 
 namespace LLWS.Core
 {
-
-    /*
-     * Cette classe statique est accessible tout au long du cycle de vie de l'application sans avoir besoins d'être instanciées
-     * Cette classe ne contient que des strings définissant les différentes routes de l'API accessible.
-     * Utilité : Eviter la répétition, et si le lien de l'API change il n'y a que la variable API_BASE_URL à changer
-     */
+    /// <summary>
+    /// Cette classe statique est accessible tout au long du cycle de vie de l'application sans avoir besoins d'être instanciée
+    /// Cette classe ne contient que des strings définissant les différentes routes de l'API accessible.
+    /// Utilité : Eviter la répétition, et si le lien de l'API change il n'y a que la variable API_BASE_URL à changer
+    /// </summary>
     public static class APIManager
     {
-        public static string API_BASE_URL = "http://localhost:9000";
+        public static string API_BASE_URL = ConfigurationManager.AppSettings["lienApi"];
         public static HttpClient httpClient;
 
 
@@ -54,6 +54,12 @@ namespace LLWS.Core
         public static string API_ROUTES_POST_ADDBUDGET = API_BASE_URL + "/responsable/user/addBudget";
         public static string API_ROUTES_POST_EDITUSER = API_BASE_URL + "/responsable/user/edit";
 
+        /// <summary>
+        /// Poste des données en JSON sur une route de l'Api
+        /// </summary>
+        /// <param name="route">Route de l'API à appeler (POST uniquement)</param>
+        /// <param name="json">Objet JSON à poster</param>
+        /// <returns></returns>
         public static async Task<JToken> posterData(string route, object json)
         {
 
@@ -69,6 +75,12 @@ namespace LLWS.Core
 
         }
 
+
+        /// <summary>
+        /// Appelle une route de l'Api et récupère la réponse retournée.
+        /// </summary>
+        /// <param name="route">Route de l'API à appeler (GET uniquement)</param>
+        /// <returns></returns>
         public static async Task<JToken> recevoirData(string route)
         {
 

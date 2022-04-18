@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace LLWS.Models
 {
-    /*
-     * Cette classe stocke l'utilisateur récupéré lors de la connexion
-     * Elle est statique dont accessible tout au long du cycle de vie de l'application
-     * Cette classe statique permet de créer une "Session" ou les informations de l'utilisateur de l'application est stockée.
-     */
-        public static class User
+    /// <summary>
+    /// Cette classe stocke l'utilisateur récupéré lors de la connexion (session)
+    /// Elle est statique dont accessible tout au long du cycle de vie de l'application
+    /// Cette classe statique permet de créer une "Session" ou les informations de l'utilisateur de l'application est stockée.
+    /// </summary>
+    public static class User
         {
             public static int id { get; set; }
             public static string email { get; set; }

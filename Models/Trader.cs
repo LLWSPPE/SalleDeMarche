@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace LLWS.Models
 {
-    /*
-     * Cette classe instancie un nouvel utilisateur.
-     * La différence avec le Models/User est que cette classe est instanciable pour opérer différentes actions
-     */
+
+    /// <summary>
+    /// Cette classe instancie un nouvel utilisateur.
+    /// La différence avec le Models/User est que cette classe est instanciable pour opérer différentes actions (listing, stockage)
+    /// </summary>
     public class Trader
     {
         public int id { get; set; }

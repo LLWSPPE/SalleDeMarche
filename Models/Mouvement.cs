@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace LLWS.Models
 {
+
+    /// <summary>
+    /// Objet Mouvement qui sera instancié pour stocker les informations des mouvements d'un utilisateur récupéré au préalable dans la db.
+    /// </summary>
     public class Mouvement
     {
 

@@ -50,7 +50,7 @@ namespace LLWS.UserInterface.Responsable
             colonneButton.UseColumnTextForButtonValue = true;
             dtgUsers.Columns.Add(colonneButton);
 
-            dtgUsers.RowHeadersVisible = false;
+            dtgUsers.RowHeadersVisible = true;
 
             remplirDataGridView();
 

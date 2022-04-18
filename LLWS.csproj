@@ -109,6 +109,7 @@
       <HintPath>packages\System.Threading.Tasks.Extensions.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -128,16 +129,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\APIManager.cs" />
-    <Compile Include="Login.cs">
+    <Compile Include="UserInterface\Connexion\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
+    <Compile Include="UserInterface\Connexion\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainMenu.cs">
+    <Compile Include="UserInterface\MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainMenu.Designer.cs">
+    <Compile Include="UserInterface\MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Cotation.cs" />
@@ -166,10 +167,10 @@
     <Compile Include="UserInterface\Products\Products.Designer.cs">
       <DependentUpon>Products.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserInterface\RegisterForm.cs">
+    <Compile Include="UserInterface\Inscription\RegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserInterface\RegisterForm.Designer.cs">
+    <Compile Include="UserInterface\Inscription\RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UserInterface\Responsable\ManageUsers.cs">
@@ -184,10 +185,10 @@
     <Compile Include="UserInterface\Responsable\ManageUserWindows.Designer.cs">
       <DependentUpon>ManageUserWindows.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="UserInterface\Connexion\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainMenu.resx">
+    <EmbeddedResource Include="UserInterface\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -209,7 +210,7 @@
     <EmbeddedResource Include="UserInterface\Products\Products.resx">
       <DependentUpon>Products.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserInterface\RegisterForm.resx">
+    <EmbeddedResource Include="UserInterface\Inscription\RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserInterface\Responsable\ManageUsers.resx">
@@ -250,9 +251,7 @@
   <ItemGroup>
     <None Include="Resources\writing.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UserInterface\Administrator\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\logo.png" />
   </ItemGroup>

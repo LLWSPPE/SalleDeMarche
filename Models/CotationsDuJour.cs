@@ -8,10 +8,9 @@ using LLWS.Models;
 
 namespace LLWS.Models
 {
-    /*
-     * Cette classe stocke les cotations du jour récupérée dans la base de données.
-     * Cela permet de ne pas faire un appel à l'API pour charger toutes les cotations à chaque fois.
-     */
+    /// <summary>
+    /// Classe statique contenant la liste des cotations du jour. Instanciée une fois pour éviter d'appeler l'API plusieurs fois.
+    /// </summary>
     static class CotationsDuJour
     {
         public static List<Cotation> ListeCotation { get; set; }

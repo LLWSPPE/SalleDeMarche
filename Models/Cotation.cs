@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LLWS.Models
 {
-    /*
-     * Cette classe permet d'instancier une nouvelle cotation récupérée depuis un JSON.
-     */
+   /// <summary>
+   /// Objet Cotation qui sera instancié pour stocker les informations d'une cotation récupéré au préalable dans la db.
+   /// </summary>
     class Cotation
     {
         public int id { get; set; }

@@ -173,6 +173,12 @@
     <Compile Include="UserInterface\Inscription\RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserInterface\Responsable\ManageCotations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserInterface\Responsable\ManageCotations.Designer.cs">
+      <DependentUpon>ManageCotations.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserInterface\Responsable\ManageUsers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserInterface\Inscription\RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserInterface\Responsable\ManageCotations.resx">
+      <DependentUpon>ManageCotations.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserInterface\Responsable\ManageUsers.resx">
       <DependentUpon>ManageUsers.cs</DependentUpon>

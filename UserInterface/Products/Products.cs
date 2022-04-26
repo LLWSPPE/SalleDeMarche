@@ -121,9 +121,6 @@ namespace LLWS.UserInterface.Products
                     var maxValeur = dtgHistorique.Rows.Cast<DataGridViewRow>().Max(r => Convert.ToDouble(r.Cells["Valeur"].Value));
                     var minValeur = dtgHistorique.Rows.Cast<DataGridViewRow>().Min(t => Convert.ToDouble(t.Cells["Valeur"].Value));
 
-                    MessageBox.Show(minValeur.ToString() + maxValeur.ToString());
-
-
                     var zoneHistorique = chrtHistorique.ChartAreas[0];
                     zoneHistorique.AxisX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Days;
                     zoneHistorique.AxisY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;

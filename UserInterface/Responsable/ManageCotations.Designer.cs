@@ -30,13 +30,13 @@ namespace LLWS.UserInterface.Responsable
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnMajCotations = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSendText = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.lblGestionCotations = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.btnMajCotations = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,12 +54,34 @@ namespace LLWS.UserInterface.Responsable
             this.panel1.Size = new System.Drawing.Size(379, 574);
             this.panel1.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(90, 277);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(250, 28);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Mise à jour des cotations";
+            // 
+            // btnMajCotations
+            // 
+            this.btnMajCotations.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnMajCotations.Enabled = false;
+            this.btnMajCotations.Location = new System.Drawing.Point(87, 314);
+            this.btnMajCotations.Name = "btnMajCotations";
+            this.btnMajCotations.Size = new System.Drawing.Size(202, 54);
+            this.btnMajCotations.TabIndex = 4;
+            this.btnMajCotations.Text = "Mettre à jour";
+            this.btnMajCotations.UseVisualStyleBackColor = false;
+            this.btnMajCotations.Click += new System.EventHandler(this.btnMajCotations_Click);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(84, 148);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 16);
+            this.label2.Size = new System.Drawing.Size(101, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "Nom_fichier.txt";
             // 
@@ -89,7 +111,7 @@ namespace LLWS.UserInterface.Responsable
             this.lblGestionCotations.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGestionCotations.Location = new System.Drawing.Point(90, 30);
             this.lblGestionCotations.Name = "lblGestionCotations";
-            this.lblGestionCotations.Size = new System.Drawing.Size(173, 21);
+            this.lblGestionCotations.Size = new System.Drawing.Size(216, 28);
             this.lblGestionCotations.TabIndex = 0;
             this.lblGestionCotations.Text = "Gestion des cotations";
             // 
@@ -100,27 +122,6 @@ namespace LLWS.UserInterface.Responsable
             this.richTextBox1.Size = new System.Drawing.Size(625, 515);
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = "";
-            // 
-            // btnMajCotations
-            // 
-            this.btnMajCotations.BackColor = System.Drawing.Color.LimeGreen;
-            this.btnMajCotations.Enabled = false;
-            this.btnMajCotations.Location = new System.Drawing.Point(87, 314);
-            this.btnMajCotations.Name = "btnMajCotations";
-            this.btnMajCotations.Size = new System.Drawing.Size(202, 54);
-            this.btnMajCotations.TabIndex = 4;
-            this.btnMajCotations.Text = "Mettre à jour";
-            this.btnMajCotations.UseVisualStyleBackColor = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(90, 277);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(199, 21);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Mise à jour des cotations";
             // 
             // ManageCotations
             // 

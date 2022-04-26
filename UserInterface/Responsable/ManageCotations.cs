@@ -51,7 +51,7 @@ namespace LLWS.UserInterface.Responsable
             }
 
             this.richTextBox1.Text = fileContent;
-            MessageBox.Show("File Content at path: " + filePath);
+            MessageBox.Show("Fichier uploadé : " + filePath);
         }
 
         private async void btnSendText_Click(object sender, EventArgs e)
@@ -77,6 +77,18 @@ namespace LLWS.UserInterface.Responsable
                     this.btnMajCotations.BackColor = Color.LimeGreen;
                 }
             }
+        }
+
+        private async void btnMajCotations_Click(object sender, EventArgs e)
+        {
+            string route = APIManager.API_ROUTES_UPDATE_COTATIONS;
+            JToken response = await APIManager.recevoirData(route);
+            if(response.SelectToken("status").ToString() == "SUCCESS")
+            {
+                this.btnMajCotations.Enabled = false;
+                this.btnMajCotations.BackColor = Color.Gray;
+            }
+            MessageBox.Show(response.SelectToken("message").ToString());
         }
     }
 }

@@ -28,6 +28,7 @@ namespace LLWS.UserInterface.Responsable
             InitializeComponent();
             this.trader = trader;
             this.mouvements = mouvements;
+            this.MaximizeBox = false;
             setUpComposants();
             this.Text = "Gestion de l'utilisateur "+trader.first_name+" "+trader.last_name+" ("+trader.id+")";
         }

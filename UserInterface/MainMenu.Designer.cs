@@ -74,10 +74,10 @@ namespace LLWS
             this.lblMenuAdmin.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblMenuAdmin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMenuAdmin.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblMenuAdmin.Location = new System.Drawing.Point(0, 687);
+            this.lblMenuAdmin.Location = new System.Drawing.Point(0, 680);
             this.lblMenuAdmin.Name = "lblMenuAdmin";
             this.lblMenuAdmin.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.lblMenuAdmin.Size = new System.Drawing.Size(191, 21);
+            this.lblMenuAdmin.Size = new System.Drawing.Size(232, 28);
             this.lblMenuAdmin.TabIndex = 11;
             this.lblMenuAdmin.Text = "Menu administrateur";
             // 
@@ -161,7 +161,7 @@ namespace LLWS
             this.lblUserBudget.Location = new System.Drawing.Point(8, 47);
             this.lblUserBudget.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserBudget.Name = "lblUserBudget";
-            this.lblUserBudget.Size = new System.Drawing.Size(50, 19);
+            this.lblUserBudget.Size = new System.Drawing.Size(59, 23);
             this.lblUserBudget.TabIndex = 8;
             this.lblUserBudget.Text = "label1";
             // 
@@ -173,7 +173,7 @@ namespace LLWS
             this.lblMyBudget.Location = new System.Drawing.Point(4, 11);
             this.lblMyBudget.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMyBudget.Name = "lblMyBudget";
-            this.lblMyBudget.Size = new System.Drawing.Size(86, 19);
+            this.lblMyBudget.Size = new System.Drawing.Size(105, 23);
             this.lblMyBudget.TabIndex = 7;
             this.lblMyBudget.Text = "Mon budget";
             // 
@@ -268,7 +268,7 @@ namespace LLWS
             this.labelWindowTitle.Location = new System.Drawing.Point(769, 25);
             this.labelWindowTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelWindowTitle.Name = "labelWindowTitle";
-            this.labelWindowTitle.Size = new System.Drawing.Size(0, 30);
+            this.labelWindowTitle.Size = new System.Drawing.Size(0, 37);
             this.labelWindowTitle.TabIndex = 0;
             // 
             // panelMainWindow
@@ -294,6 +294,7 @@ namespace LLWS
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainMenu";
             this.Text = "LLWS Network";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainMenu_FormClosed);
             this.Shown += new System.EventHandler(this.MainMenu_Shown);
             this.pnlSidebar.ResumeLayout(false);
             this.pnlSidebar.PerformLayout();

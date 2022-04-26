@@ -55,6 +55,7 @@ namespace LLWS.Core
         public static string API_ROUTES_POST_EDITUSER = API_BASE_URL + "/responsable/user/edit";
 
         public static string API_ROUTES_POST_COTATIONS = API_BASE_URL + "/admin/cotations/post";
+        public static string API_ROUTES_UPDATE_COTATIONS = API_BASE_URL + "/admin/cotations/update";
 
         /// <summary>
         /// Poste des données en JSON sur une route de l'Api

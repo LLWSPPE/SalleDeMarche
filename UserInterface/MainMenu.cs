@@ -33,10 +33,12 @@ namespace LLWS
             {
                 this.btnManageUser.Visible = false;
                 this.lblMenuAdmin.Visible = false;
+                this.btnManageCotations.Visible = false;
             }
 
         }
 
+        //En arrivant sur le menu principal, on clique sur le bouton Produits pour afficher les produits.
         private void MainMenu_Shown(object sender, EventArgs e)
         {
             btnProducts.PerformClick();
@@ -125,6 +127,13 @@ namespace LLWS
             OpenActiveForm(new UserInterface.Responsable.ManageUsers(reponse.SelectToken("result").ToString()), sender);
         }
 
+        private void btnManageCotations_Click(object sender, EventArgs e)
+        {
+            OpenActiveForm(new UserInterface.Responsable.ManageCotations(), sender);
+
+        }
+
+
 
         #endregion
 
@@ -182,8 +191,13 @@ namespace LLWS
             childForm.Show();
         }
 
+
+
         #endregion
 
-     
+        private void MainMenu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

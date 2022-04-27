@@ -113,12 +113,12 @@ namespace LLWS.UserInterface.Responsable
         private async void btnPromoteResponsable_Click(object sender, EventArgs e)
         {
 
-            string route = APIManager.API_ROUTES_POST_PROMOTE;
-            var donnees = new { userId = this.trader.id };
+            string route = APIManager.API_ROUTES_ADD_ROLE;
+            var donnees = new { userId = this.trader.id, roleToAdd = "responsable" };
 
             JToken reponse = await APIManager.posterData(route, donnees);
 
-            if (reponse.SelectToken("message").ToString() == "Cet utilisateur a été promu responsable")
+            if (reponse.SelectToken("status").ToString() == "SUCCESS")
             {
                 this.btnPromoteResponsable.Enabled = false;
                 this.btnPromoteResponsable.BackColor = Color.Gray;
@@ -134,13 +134,13 @@ namespace LLWS.UserInterface.Responsable
         private async void btnRevoquerUser_Click(object sender, EventArgs e)
         {
 
-            string route = APIManager.API_ROUTES_POST_REVOKE;
-            var donnees = new { userId = this.trader.id };
+            string route = APIManager.API_ROUTES_REMOVE_ROLE;
+            var donnees = new { userId = this.trader.id, roleToRemove = "responsable" };
 
             JToken reponse = await APIManager.posterData(route, donnees);
 
 
-            if (reponse.SelectToken("message").ToString() == "Cet utilisateur a vu ses droits de responsable révoqués.")
+            if (reponse.SelectToken("status").ToString() == "SUCCESS")
             {
                 this.btnRevoquerUser.Enabled = false;
                 this.btnRevoquerUser.BackColor = Color.Gray;
@@ -155,12 +155,12 @@ namespace LLWS.UserInterface.Responsable
         private async void btnRehabilitation_Click(object sender, EventArgs e)
         {
 
-            string route = APIManager.API_ROUTES_POST_REHABILITATE;
-            var donnees = new { userId = this.trader.id };
+            string route = APIManager.API_ROUTES_REMOVE_ROLE;
+            var donnees = new { userId = this.trader.id, roleToRemove = "suspendu" };
 
             JToken reponse = await APIManager.posterData(route, donnees);
 
-            if (reponse.SelectToken("message").ToString() == "Cet utilisateur a été réhabilité et peut recommencer à trader.")
+            if (reponse.SelectToken("status").ToString() == "SUCCESS")
             {
                 this.btnRehabilitation.Enabled = false;
                 this.btnRehabilitation.BackColor = Color.Gray;
@@ -175,12 +175,12 @@ namespace LLWS.UserInterface.Responsable
         private async void btnSuspension_Click(object sender, EventArgs e)
         {
 
-            string route = APIManager.API_ROUTES_POST_SUSPENSION;
-            var donnees = new { userId = this.trader.id };
+            string route = APIManager.API_ROUTES_ADD_ROLE;
+            var donnees = new { userId = this.trader.id, roleToAdd = "suspendu" };
 
             JToken reponse = await APIManager.posterData(route, donnees);
 
-            if (reponse.SelectToken("message").ToString() == "Cet utilisateur a été suspendu. Il ne peut plus faire d'action sur le marché.")
+            if (reponse.SelectToken("status").ToString() == "SUCCESS")
             {
                 this.btnSuspension.Enabled = false;
                 this.btnSuspension.BackColor = Color.Gray;

@@ -48,6 +48,9 @@ namespace LLWS.Core
         public static string API_ROUTES_POST_PROMOTE = API_BASE_URL + "/responsable/user/promote";
         public static string API_ROUTES_POST_REVOKE = API_BASE_URL + "/responsable/user/revoke";
 
+        public static string API_ROUTES_ADD_ROLE = API_BASE_URL + "/responsable/user/addRole";
+        public static string API_ROUTES_REMOVE_ROLE = API_BASE_URL + "/responsable/user/removeRole";
+
         public static string API_ROUTES_POST_SUSPENSION = API_BASE_URL + "/responsable/user/suspension";
         public static string API_ROUTES_POST_REHABILITATE = API_BASE_URL + "/responsable/user/rehabilitate";
 
